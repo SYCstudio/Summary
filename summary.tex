@@ -231,7 +231,7 @@
 		\subsection{线段树}
 		优秀的区间数据结构，只要求信息具有可加性和能够快速求和。
 	
-		基本操作：\texttt{单点修改，区间修改，单点查询，区间查询}
+		基本操作：单点修改，区间修改，单点查询，区间查询
 	
 		信息的维护：通常考虑维护区间内信息以及区间两端点的信息，合并两个区间的时候，只考虑两个相邻端点的信息如何合并。
 		\paragraph{标记永久化} 对于一些不会互相影响的标记，即标记之间的先后顺序并不会影响查询的结果，可以采用标记永久化的方式，把标记永久地记录在线段树节点上而不下放。可以减小常数。
@@ -320,6 +320,31 @@
 		对于单独一次询问，可以用树上 $DP$ 或者其它算法解决，但对于多次询问，这样做的复杂度是 $O(nq)$ 的。
 	
 		考虑把需要的点全部提取出来，即所有查询的点以及它们两两的 $lca$ 。为了方便查询，可以提前预处理 $dfn$ 序，这样就只需要求 $dfn$ 序上相邻两点的 $lca$ 了。复杂度为 $O(\sum n)$ 。
+		\subsection{分块}
+		类似线段树，但是分块对标记的性质要求更一般化了。
+		
+		通常的做法是对每一个块维护一个标记，当是对块进行整体操作的时候，直接打标记，否则暴力重构块。
+			\subsubsection{莫队算法}
+			基于分块的离线算法。
+			
+			基本内容是将左区间按照所在块编号排序，当在同一区间的时候，按右端点排序。
+			
+			这样一来，当在同一个块内移动的时候，左端点移动的距离是 $O(\sqrt{n})$ 右端点是 $O(n)$ ，而总共左区间的变化只会有 $O(\sqrt{n})$ 次，所以总复杂度就是 $O(n \times \sqrt{n})$
+			
+			只要求信息支持能从当前维护的区间单点增量即可。
+			\subsubsection{带修莫队}
+			带修莫队，其实就是在原来对序列分块的基础上再增加一维对时间的分块。排序的时候先按时间，再按序列位置；增量的时候，同时要维护一个当前时间戳。
+			
+			\subsubsection{树上分块}
+			如果采用序列分块的方式直接映射到到树上分块，会有序列中相邻元素在树上相距很远的问题。单独以子树或者儿子作为分块参考又会导致分块的不均匀，所以一般的分块方式是参考 [SCOI2005]王室联邦。
+			
+			具体操作是，维护一个与 dfs 相关的栈，每次进入一个子树的时候，先记录下栈顶，然后依次递归整个子树。当当前栈顶与之前记录下的栈顶之间的元素超过划定的块大小时，把这其中的元素划分到一个新块。当整棵子树完成时，把当前点加入栈中。最后要处理一些多余的点，把这些分到最后的块中即可。
+			\cpp{code//DataStruct//blocktree.cpp}
+			
+			\subsubsection{树上莫队}
+			如果是查询树上子树信息，则转成对树的 $dfn$ 序作序列莫队，或者 dsu on tree。
+			
+			否则，则是查询路径信息。进行树上分块，然后同样的维护当前某个路径 $(u,v)$ 的两个端点及答案。移动的时候，分别对两条路径上的点翻转。正确性的证明方法，就是从当前路径移动到另一条路径，直接对两组端点直接的路径取树上路径异或。为了方便处理，通常不把 $lca$ 记录在这个答案中，只在每次算答案的时候临时地把 $lca$ 加入。
 	\newpage
 	\section{数学基础}
 		\subsection{积分与求导}
@@ -444,14 +469,14 @@
 	
 			本质是分块的一种运用。首先要求 $(A,C)=1$，由费马小定理可以得到 $A ^ {x \mod \varphi(p)} \equiv A ^ x$ ，那么如果在 $[0,\varphi(p))$ 内都无解，就一定无解。
 	
-			但是直接枚举地求复杂度也太高，设一个块大小为 $m$ ，则设 $x=im-j$ ，那么式子变形为 $A^{im} \equiv A^jB \pmod C$ ，注意到 $i \in [1,m],j \in [1,m]$ ，那么就可以预处理和 \texttt{Hash} 查找了。
+			但是直接枚举地求复杂度也太高，设一个块大小为 $m$ ，则设 $x=im-j$ ，那么式子变形为 $A^{im} \equiv A^jB \pmod C$ ，注意到 $i \in [1,m],j \in [1,m]$ ，那么就可以预处理和 Hash 查找了。
 	
 			一般 $m$ 取 $\sqrt{C}$ 较优。
 			\cpp{code//Math//bsgs.cpp}
 			\subsubsection{扩展 BSGS}
 			对于 $A,C$ 不互质的情况，上述结论并不适用。
 	
-			设 $d=\gcd(A,C)$ ，则式子可以化成 $(a \times d)^x \equiv b \times d \pmod {c \times d}$ ，根据同余的性质，可以同时除掉 \texttt{d} ，即 $\frac{A}{d} \times A^{x-1} \equiv b \pmod c$ 。一直操作直到 $a \perp c$ 。那么用两个变量 \texttt{D,num} 分别记录下前面 $\frac{A}{d}$ 的积以及操作的次数，最后得到的就是 $D \times A^{x-num} \equiv b \pmod c$ ，然后就可以把 \texttt{D} 当作一个常数，用上面分块加 \texttt{hash} 的方式求解了。
+			设 $d=\gcd(A,C)$ ，则式子可以化成 $(a \times d)^x \equiv b \times d \pmod {c \times d}$ ，根据同余的性质，可以同时除掉 $d$ ，即 $\frac{A}{d} \times A^{x-1} \equiv b \pmod c$ 。一直操作直到 $a \perp c$ 。那么用两个变量 $D,num$ 分别记录下前面 $\frac{A}{d}$ 的积以及操作的次数，最后得到的就是 $D \times A^{x-num} \equiv b \pmod c$ ，然后就可以把 $D$ 当作一个常数，用上面分块加 $hash$ 的方式求解了。
 			
 			\cpp{code//Math//exbsgs.cpp}
 			\subsubsection{原根}
@@ -922,7 +947,7 @@
 				
 				求环一般采用 Tarjan 的方式，并且同时可以做对应的算法。
 				\subsubsection{圆方树}
-				把仙人掌转化为树。具体来说，对于每一个环，把环边全部断开，建立一个方点连接到所有原来的点。原来仙人掌中的点就变成圆点。建立直接 \texttt{tarjan} 。
+				把仙人掌转化为树。具体来说，对于每一个环，把环边全部断开，建立一个方点连接到所有原来的点。原来仙人掌中的点就变成圆点。建立直接 Tarjan 。
 				
 				有一下几点性质
 				\begin{itemize}
@@ -1223,343 +1248,218 @@
 	
 			只是在插入一个串之后重新从根开始插入即可，注意如果某一个点已经建立了就不用再新建点了。
 			\cpp{code//String//lsam.cpp}
-\section{计算几何}
-	\subsection{直线的表示方法}
-	最简单的是用一般式来表示，即 \texttt{Ax+By+c=0} 。  
+	\newpage
+	\section{计算几何}
+		\subsection{直线的表示方法}
+		最简单的是用一般式来表示，即 $Ax+By+c=0$ 。  
 	
-	比较通用的形式是用向量来表示，有两种表示方法，一种是直接用两个不同的点来代表直线；另一种是指定直线上的一个点，然后用一个向量表示其指向方向，方便起见，指定的点通常是与 \texttt{y} 轴的交点。
-	\subsection{求三角形面积}
+		比较通用的形式是用向量来表示，有两种表示方法，一种是直接用两个不同的点来代表直线；另一种是指定直线上的一个点，然后用一个向量表示其指向方向，方便起见，指定的点通常是与 $y$ 轴的交点。
+		\subsection{求三角形面积}
+		一种比较简介的方法是利用海伦公式 $S=\sqrt{p(p-a)(p-b)(p-c)}$ ，其中 $p=\frac{a+b+c}{2}$
 	
-	一种比较简介的方法是利用海伦公式 $S=\sqrt{p(p-a)(p-b)(p-c)}$ ，其中 $p=\frac{a+b+c}{2}$
-	
-	另一种方法是用向量，注意求出的是带符号的面积，所以有的时候也可以用来判断两个向量的相对位置关系。
-	
-\begin{minted}[bgcolor=bg]{c++}
-ld Cross(Point A,Point B){
-    return A.x*B.y-A.y*B.x;
-}
-\end{minted}
-	
-	\subsection{向量的旋转}
-	对于向量 \texttt{(x,y)} 旋转 $\theta$ 后的向量为 $(x\cos\theta-y\sin\theta,x\sin\theta+y\cos\theta)$
-	
-	\subsection{求直线的交点}
-	直接的方法就是带入两条直线的一般式解方程。需要讨论一些情况。  
-	
-	一种比较简单的写法是用向量加面积的比来求。
-	  
-	用直线上一个点+指向方向的向量这种方式表示两条直线，如图所示 \texttt{AE} 和 \texttt{BD} ，交点为 \texttt{P} ， \texttt{OA} 和 \texttt{OB} 分别为两点的位置向量， \texttt{AE} 和 \texttt{BD} 分别为方向向量，而 \texttt{AA'} 由 \texttt{BD} 平移得到。
-	
-	\begin{center}
-		\includegraphics[width=7cm]{file//point.png}
-	\end{center}
-
-	能够通过 \texttt{cross} 快速算出两个黄色三角形的面积，然后两个面积之比就是 \texttt{AE} 与 \texttt{AP} 之比，这个由相似三角形可以证明，那么就用 \texttt{A} 点的位置向量加上方向向量的若干倍，得到的就是交点 \texttt{P} 的坐标了。
-\begin{minted}[bgcolor=bg]{c++}
-Point GetP(Line A,Line B){//.p 为位置向量， .d 为方向向量
-    Point dx=A.p-B.p;
-    ld t=Cross(B.d,dx)/Cross(A.d,B.d);
-    return A.p+A.d*t;
-}
-\end{minted}
-	
-	\subsection{半平面交}
-	若干个半平面的交集称之为半平面交，通常用来求解二元不等式的相关问题。  
-	
-	默认半平面为有向向量的左半部分。
-	
-	一般解法为，先把所有向量按照极角排序，然后考虑增量构造。维护两个双端队列，一个用来维护当前在半平面交上的向量，另一个用来维护在半平面交上相邻向量的交点坐标。加入一个新的向量的时候，判断最后的交点是否在当前向量的左边，如果是，说明前面的向量合法，否则说明前面的某个向量已经被覆盖，需要弹掉。需要用双端队列的原因是，后面向量可能会绕一圈绕回来，把前面的交点弹掉，同样是判断交点是否在当前向量的左边。  
-	
-	但这样的话，会导致最后面有部分多余的向量，需要再假装把第一个向量再加入，弹掉后面那些交点在右边的向量。  
-	
-	当向量个数大于等于 \texttt{3} 个，则说明存在解。
-	
-	需要注意的是，因为半平面交的解有可能是外围的无限大平面，所以一般的做法是在外围加入一个非常大的平行四边形或矩形，把整个半平面限制在这个矩形内。
-	
-\begin{minted}[bgcolor=bg]{c++}
-bool Isleft(Line A,Point B){
-    return Cross(A.d,B-A.p)>0;
-}
-bool check(){
-    int L=1,R=1;Q1[1]=A[1];
-    for (int i=2;i<=scnt;i++){
-        while ((L<R)&&(!Isleft(A[i],Q2[R-1]))) R--;
-        while ((L<R)&&(!Isleft(A[i],Q2[L]))) L++;
-        Q1[++R]=A[i];
-        if (fabs(Cross(Q1[R].d,Q1[R-1].d))<1e-15){
-            --R;
-            if (Isleft(Q1[R],A[i].p)) Q1[R]=A[i];
-        }
-        if (L<R) Q2[R-1]=GetP(Q1[R-1],Q1[R]);
-    }
-    while ((L<R)&&(!Isleft(Q1[L],Q2[R-1]))) R--;
-    return R-L>1;
-}
-\end{minted}
-\section{博弈论}
-	\subsection{基本定义和性质}
-	\subsubsection{必胜点和必败点}
-	
-	\texttt{P} 必败点，当前先手无论如何必败的点  
-	
-	\texttt{N} 必胜点，当前先手如果正确操作能够胜利的点
-	
-	\begin{itemize}
-		\item 所有游戏的终止位置都是都是 \texttt{P}   
-		\item 任何必胜点一定能进入一个必败点  
-		\item 任何必败点只能进入必胜点
-	\end{itemize}
-	
-	\subsubsection{无偏博弈}
-	
-	无偏博弈是一类任意局势对于游戏双方都是平等的回合制双人游戏。平等的含义是当前的所有可行的走法仅仅只依赖与当前的局势，而与当前谁移动无关。换而言之，两个人除了先后手的区别之外就不存在任何区别。除此之外，还需要满足一下性质：  
-	
-	\begin{itemize}
-		\item 完全信息，任何一个游戏者都能够知晓整个游戏状态。  
-		\item 无随机行动，所有的行动都会转移到一个唯一确定的状态。  
-		\item 有限步内游戏会终止，此时有唯一的胜者。
-	\end{itemize}
-	
-	\subsection{正确性的证明方法}
-	
-	根据定义，证明一种判断 \texttt{position} 的性质的方法的正确性，只需证明三个命题
-	
-	\begin{itemize}
-		\item 这个判断将所有结束位置判断为 \texttt{P} 点
-		\item 根据这个判断得出的 \texttt{N} 点一定能走到一个 \texttt{P} 点
-		\item 根据这个判断得出的 \texttt{P} 点一定不能走到一个 \texttt{P} 点
-	\end{itemize}
-	\subsection{对抗搜索}
-	一般而言，站在两个人的立场上进行搜索。
-	
-	通常为了方便处理，将一个人的权值设置为负数，另一个为正数，这样就可以在不同的层进行 \texttt{min-max} 搜索。
-	
-	\paragraph{\texttt{Alpha-Beta}剪枝} \texttt{Alpha-Beta} 剪枝在于把父亲或者祖先的信息向下传递，若发现当前的答案无论如何都无法更新祖先时，直接返回。
-	\paragraph{记忆化}对于可记忆的搜索，可以加上记忆化或转化为可以记忆化的方式，通常是对于某一局面，两人不论谁先操作，得到的结果一样时，可以记忆化。
-	\subsection{常见模型}
-	
-	\subsubsection{巴什博弈\texttt{(Bash Game）}}
-	\paragraph{基本问题} 给出一堆 \texttt{n} 个石子，每次可以选择 \texttt{1-m} 个，最后无法选择的人输，求先后手的获胜情况。
-	\paragraph{结论} 当 \texttt{(m+1)|n} 的时候，先手必败，否则先手必胜。
-	\paragraph{证明} 可以知道，\texttt{[1,m]} 内是先手必胜的，\texttt{m+1} 只能转移到 \texttt{N} 节点，所以是 \texttt{P} 节点，依次类推
-	
-	一般而言，都是用这种分析必胜、必败区间的方法来证明或者归纳其正确性。
-	
-	\subsubsection{尼姆博弈\texttt{(Nim Game)}}
-	\paragraph{基本问题} 给出若干堆石子，每次可以从某堆石子中任意选取若干个，不能操作者输。
-	\paragraph{结论} 当所有堆石子异或和为 \texttt{0} 的时候，先手必败，否则先手必胜
-	\paragraph{证明} 可以直接用 \texttt{SG} 定理来证，也可以根据必胜必败点的定义来证。下面证明定义的三个命题成立。
-	
-	\begin{itemize}
-		\item 命题一：终止位置只有一个，那就是所有石子堆都为 \texttt{0} ，此时异或和为 \texttt{0} ，得证  
-		\item 命题二：任意一个非 \texttt{0} 的异或组合一定能找到那个最高位 \texttt{1} 的来源使之走到一个异或和为 \texttt{0} 的组合，得证  
-		\item 命题三：任意一个异或和为 \texttt{0} 的组合去掉任意一个数后异或和都不为 \texttt{0} ，得证  
-	\end{itemize}
-	三个命题均成立，所以成立。
-	
-	\paragraph{尼姆博弈的扩展形式}
-	\begin{itemize}
-		\item 限定每次取的上限，即每次只能取 \texttt{[1,m]} 个
-	
-		相当于与 \texttt{Bash Game} 进行组合，那么将所有石子对 \texttt{(m+1)} 取模再进行 \texttt{Nim} 游戏
-	
-		\item 允许从 \texttt{K} 堆石子中取
-	
-		一般在一堆中取是作异或，而异或就是二进制不进位加法。那么从 \texttt{K} 堆中取就是对所有石子的二进制位作 \texttt{K+1} 进制的不进位加法
-	
-		\item 阶梯博弈，每一次将一堆石子的一部分从当前阶移动到下一阶，不能移动者输
-	
-		只需要考虑奇数阶的石子的异或和，因为如果是偶数阶的话，对方操作一次偶数阶，可以对应的操作奇数阶使得恢复到原来的状态。
-	\end{itemize}
-	
-	\subsubsection{威佐夫博弈 \texttt{(Wythoff Game)}}
-	\paragraph{基本问题} 两堆石子，每次可以在一堆中取，也可以在两堆中同时取相同多个，不能取的人输。
-	\paragraph{结论} 先手必败的情况一定满足 $(\lfloor ka\rfloor,\lfloor ka^2 \rfloor )$ ，其中 $a=\frac{\sqrt{5}+1}{2}$
-	
-	\subsection{\texttt{Sprague-Grundy}定理与\texttt{Sprague-Grundy}函数}
-	\subsubsection{定义}
-	\paragraph{\texttt{SG}函数} 对于每一个状态的尼姆数的函数称为 \texttt{SG} 函数。
-	\paragraph{\texttt{SG}定理} 所有一般胜利下的无偏博弈都能够转化成尼姆数表达的尼姆堆博弈，一个无偏博弈的尼姆值定义为这个博弈的等价尼姆数。
-	
-	对于当前游戏 \texttt{X}，它可以拆分成若干个子游戏$x_1,x_2,x_3,\dots,x_n$。那么$SG(X)=SG(x_1)\oplus SG(x_2)\oplus\dots\oplus SG(x_n)$。定义 \texttt{P} 状态和空集的 \texttt{SG} 函数为 \texttt{0} ，而对于当前状态 \texttt{x} ，它的 \texttt{SG} 值为其所有后继的 \texttt{mex} 。
-	
-	\subsubsection{\texttt{Anti-SG} 游戏和 \texttt{SJ}定理}
-	\paragraph{基本问题}给定 \texttt{n} 堆石子，每次可以从任意一堆石子中取走不少以一个石子，拿到最后一个石子的人输。
-	\paragraph{\texttt{SJ}定理} 对于一个\texttt{Anti−SG} 游戏，如果我们规定当前局面中所有单一游戏的 \texttt{SG}为 \texttt{0}时，游戏结束，则先手必胜的条件为：
-	\begin{itemize}
-		\item 游戏的\texttt{SG}值不为\texttt{0}，且存在一个单一游戏的\texttt{SG}值大于\texttt{1}
-		\item 游戏的\texttt{SG}值为\texttt{0}，且不存在一个单一游戏的\texttt{SG}值大于\texttt{1}。
-	\end{itemize}
-	
-	\subsubsection{\texttt{Multi-SG}游戏}
-	\paragraph{基本问题} 给定 \texttt{n} 堆石子，每次可以取走任意数量个，或者将一堆式子拆分成两堆（事实上更多也是可行的）非空石子，不能操作者输，判定胜负。
-	\paragraph{结论} 本质还是 \texttt{SG} 定理的运用。对于每个状态的后继状态，既可以是拆分，也可以是数量的减少，对所有后继状态取 \texttt{mex}
-	
-	当拆分堆数为 \texttt{2} 时，有如下结论。
-	\begin{align}
-	SG(x)=\begin{cases} x-1&(x\ mod\ 4=0)\\ x&(x\ mod\ 4=1\&2)\\ x+1&(x\ mod\ 4=3) \end{cases}\nonumber		
-	\end{align}
-	\subsubsection{翻硬币游戏}
-	\paragraph{基本问题}有若干枚硬币，每次按照一定的规则翻转硬币，强制要求最右边的一定必须从正面翻到背面。无法操作者输。
-	\paragraph{结论}当前局面的 \texttt{SG} 值是所有正面朝上的硬币的 \texttt{SG} 值单独存在时的 \texttt{SG} 函数的异或和。
+		另一种方法是用向量，注意求出的是带符号的面积，所以有的时候也可以用来判断两个向量的相对位置关系。
+		\cpp{code//Geometry//cross.cpp}
+		\subsection{向量的旋转}
+		对于向量 $(x,y)$ 旋转 $\theta$ 后的向量为 $(x\cos\theta-y\sin\theta,x\sin\theta+y\cos\theta)$
+		
+		\subsection{求直线的交点}
+		直接的方法就是带入两条直线的一般式解方程。需要讨论一些情况。  
+		
+		一种比较简单的写法是用向量加面积的比来求。
+		  
+		用直线上一个点+指向方向的向量这种方式表示两条直线，如图所示 $AE$ 和 $BD$ ，交点为 $P$ ， $OA$ 和 $OB$ 分别为两点的位置向量， $AE$ 和 $BD$ 分别为方向向量，而 $AA'$ 由 $BD$ 平移得到。
+		\begin{center}
+			\includegraphics[width=7cm]{file//point.png}
+		\end{center}
+		能够通过 $cross$ 快速算出两个黄色三角形的面积，然后两个面积之比就是 $AE$ 与 $AP$ 之比，这个由相似三角形可以证明，那么就用 $A$ 点的位置向量加上方向向量的若干倍，得到的就是交点 $P$ 的坐标了。
+		\cpp{code//Geometry//intersection.cpp}
+		\subsection{半平面交}
+		若干个半平面的交集称之为半平面交，通常用来求解二元不等式的相关问题。  
+		
+		默认半平面为有向向量的左半部分。
+		
+		一般解法为，先把所有向量按照极角排序，然后考虑增量构造。维护两个双端队列，一个用来维护当前在半平面交上的向量，另一个用来维护在半平面交上相邻向量的交点坐标。加入一个新的向量的时候，判断最后的交点是否在当前向量的左边，如果是，说明前面的向量合法，否则说明前面的某个向量已经被覆盖，需要弹掉。需要用双端队列的原因是，后面向量可能会绕一圈绕回来，把前面的交点弹掉，同样是判断交点是否在当前向量的左边。  
+		
+		但这样的话，会导致最后面有部分多余的向量，需要再假装把第一个向量再加入，弹掉后面那些交点在右边的向量。  
+		
+		当向量个数大于等于 $3$ 个，则说明存在解。
+		
+		需要注意的是，因为半平面交的解有可能是外围的无限大平面，所以一般的做法是在外围加入一个非常大的平行四边形或矩形，把整个半平面限制在这个矩形内。
+		\cpp{code//Geometry//hpi.cpp}
+	\newpage
+	\section{博弈论}
+		\subsection{基本定义和性质}
+			\subsubsection{必胜点和必败点}
+			$P$ 必败点，当前先手无论如何必败的点  
+			
+			$N$ 必胜点，当前先手如果正确操作能够胜利的点
+			\begin{itemize}
+				\item 所有游戏的终止位置都是都是 $P$   
+				\item 任何必胜点一定能进入一个必败点  
+				\item 任何必败点只能进入必胜点
+			\end{itemize}
+			\subsubsection{无偏博弈}
+			无偏博弈是一类任意局势对于游戏双方都是平等的回合制双人游戏。平等的含义是当前的所有可行的走法仅仅只依赖与当前的局势，而与当前谁移动无关。换而言之，两个人除了先后手的区别之外就不存在任何区别。除此之外，还需要满足一下性质：  
+			\begin{itemize}
+				\item 完全信息，任何一个游戏者都能够知晓整个游戏状态。  
+				\item 无随机行动，所有的行动都会转移到一个唯一确定的状态。  
+				\item 有限步内游戏会终止，此时有唯一的胜者。
+			\end{itemize}
+		\subsection{正确性的证明方法}
+			根据定义，证明一种判断 position 的性质的方法的正确性，只需证明三个命题
+			
+			\begin{itemize}
+				\item 这个判断将所有结束位置判断为 $P$ 点
+				\item 根据这个判断得出的 $N$ 点一定能走到一个 $P$ 点
+				\item 根据这个判断得出的 $P$ 点一定不能走到一个 $P$ 点
+			\end{itemize}
+		\subsection{对抗搜索}
+		一般而言，站在两个人的立场上进行搜索。
+		
+		通常为了方便处理，将一个人的权值设置为负数，另一个为正数，这样就可以在不同的层进行 min-max 搜索。
+		\paragraph{Alpha-Beta剪枝} Alpha-Beta 剪枝在于把父亲或者祖先的信息向下传递，若发现当前的答案无论如何都无法更新祖先时，直接返回。
+		\paragraph{记忆化}对于可记忆的搜索，可以加上记忆化或转化为可以记忆化的方式，通常是对于某一局面，两人不论谁先操作，得到的结果一样时，可以记忆化。
+		\subsection{常见模型}
+			\subsubsection{巴什博弈(Bash Game）}
+			\paragraph{基本问题} 给出一堆 $n$ 个石子，每次可以选择 $[1,m]$ 个，最后无法选择的人输，求先后手的获胜情况。
+			\paragraph{结论} 当 $(m+1)|n$ 的时候，先手必败，否则先手必胜。
+			\paragraph{证明} 可以知道，$[1,m]$ 内是先手必胜的，$m+1$ 只能转移到 $N$ 节点，所以是 $P$ 节点，依次类推
+			一般而言，都是用这种分析必胜、必败区间的方法来证明或者归纳其正确性。
+			\subsubsection{尼姆博弈(Nim Game)}
+			\paragraph{基本问题} 给出若干堆石子，每次可以从某堆石子中任意选取若干个，不能操作者输。
+			\paragraph{结论} 当所有堆石子异或和为 $0$ 的时候，先手必败，否则先手必胜
+			\paragraph{证明} 可以直接用 $SG$ 定理来证，也可以根据必胜必败点的定义来证。下面证明定义的三个命题成立。
+			\begin{itemize}
+				\item 命题一：终止位置只有一个，那就是所有石子堆都为 $0$ ，此时异或和为 $0$ ，得证  
+				\item 命题二：任意一个非 $0$ 的异或组合一定能找到那个最高位 $1$ 的来源使之走到一个异或和为 $0$ 的组合，得证  
+				\item 命题三：任意一个异或和为 $0$ 的组合去掉任意一个数后异或和都不为 $0$ ，得证  
+			\end{itemize}
+			三个命题均成立，所以成立。
+			\paragraph{尼姆博弈的扩展形式}
+			\begin{itemize}
+				\item 限定每次取的上限，即每次只能取 $[1,m]$ 个
+			
+				相当于与 Bash Game 进行组合，那么将所有石子对 $(m+1)$ 取模再进行 $Nim$ 游戏
+				\item 允许从 $K$ 堆石子中取
+			
+				一般在一堆中取是作异或，而异或就是二进制不进位加法。那么从 $K$ 堆中取就是对所有石子的二进制位作 $K+1$ 进制的不进位加法
+				\item 阶梯博弈，每一次将一堆石子的一部分从当前阶移动到下一阶，不能移动者输
+			
+				只需要考虑奇数阶的石子的异或和，因为如果是偶数阶的话，对方操作一次偶数阶，可以对应的操作奇数阶使得恢复到原来的状态。
+			\end{itemize}
+			
+			\subsubsection{威佐夫博弈 (Wythoff Game)}
+			\paragraph{基本问题} 两堆石子，每次可以在一堆中取，也可以在两堆中同时取相同多个，不能取的人输。
+			\paragraph{结论} 先手必败的情况一定满足 $(\lfloor ka\rfloor,\lfloor ka^2 \rfloor )$ ，其中 $a=\frac{\sqrt{5}+1}{2}$
+			
+		\subsection{Sprague-Grundy定理与Sprague-Grundy函数}
+			\subsubsection{定义}
+			\paragraph{$SG$ 函数} 对于每一个状态的尼姆数的函数称为 $SG$ 函数。
+			\paragraph{$SG$ 定理} 所有一般胜利下的无偏博弈都能够转化成尼姆数表达的尼姆堆博弈，一个无偏博弈的尼姆值定义为这个博弈的等价尼姆数。
+			
+			对于当前游戏 $X$，它可以拆分成若干个子游戏$x_1,x_2,x_3,\dots,x_n$。那么$SG(X)=SG(x_1)\oplus SG(x_2)\oplus\dots\oplus SG(x_n)$。定义 $P$ 状态和空集的 $SG$ 函数为 $0$ ，而对于当前状态 $x$ ，它的 $SG$ 值为其所有后继的 $mex$ 。
+			\subsubsection{Anti-SG 游戏和 SJ定理}
+			\paragraph{基本问题}给定 $n$ 堆石子，每次可以从任意一堆石子中取走不少以一个石子，拿到最后一个石子的人输。
+			\paragraph{SJ 定理} 对于一个 Anti−SG 游戏，如果我们规定当前局面中所有单一游戏的 $S$ 为 $0$ 时，游戏结束，则先手必胜的条件为：
+			\begin{itemize}
+				\item 游戏的 $SG$ 值不为 $0$，且存在一个单一游戏的 $SG$ 值大于 $1$
+				\item 游戏的 $SG$ 值为 $0$，且不存在一个单一游戏的 $SG$ 值大于 $1$。
+			\end{itemize}
+			\subsubsection{Multi-SG 游戏}
+			\paragraph{基本问题} 给定 $n$ 堆石子，每次可以取走任意数量个，或者将一堆式子拆分成两堆（事实上更多也是可行的）非空石子，不能操作者输，判定胜负。
+			\paragraph{结论} 本质还是 $SG$ 定理的运用。对于每个状态的后继状态，既可以是拆分，也可以是数量的减少，对所有后继状态取 $mex$
+			
+			当拆分堆数为 $2$ 时，有如下结论。
+			\begin{align}
+			SG(x)=\begin{cases} x-1&(x\ mod\ 4=0)\\ x&(x\ mod\ 4=1\&2)\\ x+1&(x\ mod\ 4=3) \end{cases}\nonumber		
+			\end{align}
+			\subsubsection{翻硬币游戏}
+			\paragraph{基本问题}有若干枚硬币，每次按照一定的规则翻转硬币，强制要求最右边的一定必须从正面翻到背面。无法操作者输。
+			\paragraph{结论}当前局面的 $SG$ 值是所有正面朝上的硬币的 $SG$ 值单独存在时的 $SG$ 函数的异或和。
+	\newpage
 	\section{其它}
 		\subsection{STL}
 		\subsubsection{系统堆}
 		系统本身有一种已经实现好的堆 \mintinline{c++}{priority_queue} 。但是由于其底层是用 vector 实现的，当不开 O2 的时候常数较大。
 		
-		但其实 \texttt{STL} 里已经提供了直接操作堆的方法。当堆的大小确定的时候，不妨采用这种实现方式。
+		但其实 $STL$ 里已经提供了直接操作堆的方法。当堆的大小确定的时候，不妨采用这种实现方式。
 		
-		\texttt{make\_heap}: 根据指定的迭代器区间以及一个可选的比较函数，来创建一个 \texttt{heap}。 复杂度 $O(n)$
+		\mintinline{c++}{make\_heap}: 根据指定的迭代器区间以及一个可选的比较函数，来创建一个 $heap$。 复杂度 $O(n)$
 		
-		\texttt{push\_heap}: 把指定区间的最后一个元素插入到 \texttt{heap}中。复杂度 $O(\log n)$
+		\mintinline{c++}{push\_heap}: 把指定区间的最后一个元素插入到 $heap$中。复杂度 $O(\log n)$
 		
-		\texttt{pop\_heap}: 弹出 \texttt{heap} 顶元素, 将其放置于区间末尾。复杂度 $O(\log n)$
+		\mintinline{c++}{pop\_heap}: 弹出 $heap$ 顶元素, 将其放置于区间末尾。复杂度 $O(\log n)$
 		
 		\begin{minted}[bgcolor=bg]{c++}
-		class heap{
-		public:
-		state H[maxH];int c;
-		void push(state x){
-		H[++c]=x;push_heap(&H[1],&H[c+1]);
-		}
-		state top(){
-		return H[1];
-		}
-		void pop(){
-		pop_heap(&H[1],&H[c+1]);--c;
-		}
-		bool empty(){
-		return c==0;
-		}
-		};
+		\cpp{code//Other//stl-heap.cpp}
 		\end{minted}
-		\subsection{分块}
-类似线段树，但是分块对标记的性质要求更一般化了。
 
-通常的做法是对每一个块维护一个标记，当是对块进行整体操作的时候，直接打标记，否则暴力重构块。
-\subsubsection{莫队算法}
-基于分块的离线算法。
-
-基本内容是将左区间按照所在块编号排序，当在同一区间的时候，按右端点排序。
-
-这样一来，当在同一个块内移动的时候，左端点移动的距离是 $O(\sqrt{n})$ 右端点是 $O(n)$ ，而总共左区间的变化只会有 $O(\sqrt{n})$ 次，所以总复杂度就是 $O(n \times \sqrt{n})$
-
-只要求信息支持能从当前维护的区间单点增量即可。
-
-\subsubsection{带修莫队}
-带修莫队，其实就是在原来对序列分块的基础上再增加一维对时间的分块。排序的时候先按时间，再按序列位置；增量的时候，同时要维护一个当前时间戳。
-
-\subsubsection{树上分块}
-如果采用序列分块的方式直接映射到到树上分块，会有序列中相邻元素在树上相距很远的问题。单独以子树或者儿子作为分块参考又会导致分块的不均匀，所以一般的分块方式是参考 \texttt{[SCOI2005]王室联邦}。
-
-具体操作是，维护一个与 \texttt{dfs} 相关的栈，每次进入一个子树的时候，先记录下栈顶，然后依次递归整个子树。当当前栈顶与之前记录下的栈顶之间的元素超过划定的块大小时，把这其中的元素划分到一个新块。当整棵子树完成时，把当前点加入栈中。最后要处理一些多余的点，把这些分到最后的块中即可。
-\begin{minted}[bgcolor=bg]{c++}
-void dfs(int u,int fa){
-int nowtop=top;
-for (int i=Head[u];i!=-1;i=Next[i])
-if (V[i]!=fa){
-dfs(V[i],u);
-if (top-nowtop>=blocksize)
-{
-blockcnt++;
-while (top!=nowtop) Belong[St[top--]]=blockcnt;
-}
-}
-St[++top]=u;return;
-}
-\end{minted}
-
-\subsubsection{树上莫队}
-如果是查询树上子树信息，则转成对树的 \texttt{dfn} 序作序列莫队，或者 \texttt{dsu on tree}。
-
-否则，则是查询路径信息。进行树上分块，然后同样的维护当前某个路径 \texttt{(u,v)} 的两个端点及答案。移动的时候，分别对两条路径上的点翻转。正确性的证明方法，就是从当前路径移动到另一条路径，直接对两组端点直接的路径取树上路径异或。为了方便处理，通常不把 \texttt{lca} 记录在这个答案中，只在每次算答案的时候临时地把 \texttt{lca} 加入。
-
-\begin{minted}[bgcolor=bg]{c++}
-void Move(int u,int v)
-{
-int lca=LCA(u,v);
-while (u!=lca) Reverse(u),u=Fa[0][u];
-while (v!=lca) Reverse(v),v=Fa[0][v];
-return;
-}
-\end{minted}
-\texttt{Reverse} 即点翻转，原来在路径上的现在从路径中去掉，反之加入路径。
-
-\subsection{\texttt{Meet in the middle}}
-对于一些集合的查询问题，可以把集合分成两个部分，分别求信息，然后枚举组合一下。
-
-\subsection{状态压缩}
-把与决策相关的信息通过压缩的方式压起来。常见的有二进制压位、整数拆分压位和最小表示法。
-
-\subsection{斜率优化}
-常见于将二维的 \texttt{DP} 优化到一维。
-
-一般的推导方式是，讨论前面到当前的两种转移的优劣，列出不等式得到斜率形式，转变为维护凸包。另外也有半平面交的解释方法。
-
-根据 \texttt{x,y} 两维的单调情况，选择单调栈/单调队列/平衡树来维护凸包，采用暴力弹/二分/二叉树查询的方式来查询答案。
-
-\subsection{决策单调}
-类似斜率优化，一般用于维护 \texttt{DP} 。当代价的函数满足比如二次函数这种增长很快的形式时，可以考虑决策单调。有两种形式。
-一种是对于当前决策，如果小于另一个决策，并且以后都不可能更优，则直接把这个决策舍弃掉。维护一个类似单调栈的东西，比较两个决策点的时候，二分得到后一个超过前一个的时间，与当前时间比较。
-
-另一种是分治地来做。如果当前点 \texttt{i} 的最优决策点在 \texttt{j} 那么在 \texttt{i} 左边的点的最优决策点不会大于 \texttt{j} ，而在右边的不会小于 \texttt{j} ， 那么就可以把询问区间和决策区间从这里分裂开来，分治地求解子问题。
-
-\subsection{摊还分析}
-通常用于时间复杂度的分析中，像是 \texttt{KMP},\texttt{AC} 自动机， \texttt{Splay,LCT} 还有一些线段树的复杂度证明需要用到摊还分析。一般来说有两种。
-
-\paragraph{核算法} 每一种操作有一个实际的代价，再对每种操作定义一个或许与实际代价不同的摊还代价。可以认为是一些操作在满足自己的基础上还存放了一些代价供其它操作使用。
-
-\paragraph{势能分析} 与核算法类似，不过是定义一些操作增加势能另一些减少势能。
-
-\subsection{树套树}
-把数据结构嵌套使用。常数较大。
-
-\subsection{\texttt{dsu on tree}}
-基于重链剖分的离线子树查询方式。
-
-扫描的时候，对于轻儿子，暴力扫描加入答案，并且在计算完后暴力清除，而重儿子保留下来，递归重儿子直接计算。
-
-复杂度证明是基于树上任意一个点到根的路径在重链剖分中只会有 \texttt{log} 个重链，也就是说最多被暴力计算 \texttt{log} 次。
-
-\subsection{平面距离}
-\subsubsection{欧几里得距离}
-多维空间中两点的直线距离  
-
-$$\sqrt{(x1-x2)^2+(y1-y2)^2+……+(k1-k2)^2}$$
-
-\subsubsection{曼哈顿距离}
-两点横纵坐标差的绝对值之和
-
-$$|x1-x2|+|y1-y2|$$
-
-\subsubsection{切比雪夫距离}
-坐标差中的较大值
-$$max(|x1-x2|,|y1-y2|)$$
-
-\subsubsection{切比雪夫距离与曼哈顿距离的转化}
-考虑在二维平面上，与原点曼哈顿距离为$1$的点
-
-\begin{center}
-	\includegraphics[width=7cm]{file//manhattan.png}
-\end{center}
-
-那么，与原点切比雪夫距离为$1$的点为 
-
-\begin{center}
-	\includegraphics[width=7cm]{file//qiebixuefu.png}
-\end{center}
-
-可以发现，第二个图相当于把第一个图旋转$45°$再放大一倍。  
-
-所以曼哈顿距离中的点$(x,y)$转化到切比雪夫中就是$(\frac{x+y}{2},\frac{x-y}{2})$	
-\subsection{平面图与对偶图}
-对于平面图，可以将其转化为对偶图。具体来说，对于原来的每个平面区域建立一个点，而分割两个平面的边变成连接两个点的边。
-
-有着一些良好的性质，比如平面图的最小割就是对偶图的最短路。
-\subsection{二进制分组}
-对于维护的信息，从大到小每二进制大小个维护一组。当有两组大小相同时，将两组合并。
-
-本质上是一个动态构建线段树的过程。
+		\subsection{Meet in the middle}
+		对于一些集合的查询问题，可以把集合分成两个部分，分别求信息，然后枚举组合一下。
+		\subsection{状态压缩}
+		把与决策相关的信息通过压缩的方式压起来。常见的有二进制压位、整数拆分压位和最小表示法。
+		\subsection{斜率优化}
+		常见于将二维的 $DP$ 优化到一维。
+		一般的推导方式是，讨论前面到当前的两种转移的优劣，列出不等式得到斜率形式，转变为维护凸包。另外也有半平面交的解释方法。
+		
+		根据 $x,y$ 两维的单调情况，选择单调栈/单调队列/平衡树来维护凸包，采用暴力弹/二分/二叉树查询的方式来查询答案。
+		\subsection{决策单调}
+		类似斜率优化，一般用于维护 $DP$ 。当代价的函数满足比如二次函数这种增长很快的形式时，可以考虑决策单调。有两种形式。
+		一种是对于当前决策，如果小于另一个决策，并且以后都不可能更优，则直接把这个决策舍弃掉。维护一个类似单调栈的东西，比较两个决策点的时候，二分得到后一个超过前一个的时间，与当前时间比较。
+		
+		另一种是分治地来做。如果当前点 $i$ 的最优决策点在 $j$ 那么在 $i$ 左边的点的最优决策点不会大于 $j$ ，而在右边的不会小于 $j$ ， 那么就可以把询问区间和决策区间从这里分裂开来，分治地求解子问题。
+		\subsection{摊还分析}
+		通常用于时间复杂度的分析中，像是 $KMP$,$AC$ 自动机， $Splay,LCT$ 还有一些线段树的复杂度证明需要用到摊还分析。一般来说有两种。
+		\paragraph{核算法} 每一种操作有一个实际的代价，再对每种操作定义一个或许与实际代价不同的摊还代价。可以认为是一些操作在满足自己的基础上还存放了一些代价供其它操作使用。
+		\paragraph{势能分析} 与核算法类似，不过是定义一些操作增加势能另一些减少势能。
+		\subsection{树套树}
+		把数据结构嵌套使用。常数较大。
+		\subsection{dsu on tree}
+		基于重链剖分的离线子树查询方式。
+		
+		扫描的时候，对于轻儿子，暴力扫描加入答案，并且在计算完后暴力清除，而重儿子保留下来，递归重儿子直接计算。
+		
+		复杂度证明是基于树上任意一个点到根的路径在重链剖分中只会有 $\log$ 个重链，也就是说最多被暴力计算 $\log$ 次。
+		\subsection{平面距离}
+			\subsubsection{欧几里得距离}
+			多维空间中两点的直线距离  
+			
+			$$\sqrt{(x1-x2)^2+(y1-y2)^2+……+(k1-k2)^2}$$
+			
+			\subsubsection{曼哈顿距离}
+			两点横纵坐标差的绝对值之和
+			
+			$$|x1-x2|+|y1-y2|$$
+			
+			\subsubsection{切比雪夫距离}
+			坐标差中的较大值
+			$$max(|x1-x2|,|y1-y2|)$$
+			
+			\subsubsection{切比雪夫距离与曼哈顿距离的转化}
+			考虑在二维平面上，与原点曼哈顿距离为$1$的点
+			
+			\begin{center}
+				\includegraphics[width=7cm]{file//manhattan.png}
+			\end{center}
+			
+			那么，与原点切比雪夫距离为$1$的点为 
+			
+			\begin{center}
+				\includegraphics[width=7cm]{file//qiebixuefu.png}
+			\end{center}
+			
+			可以发现，第二个图相当于把第一个图旋转$45°$再放大一倍。  
+			
+			所以曼哈顿距离中的点$(x,y)$转化到切比雪夫中就是$(\frac{x+y}{2},\frac{x-y}{2})$	
+		\subsection{平面图与对偶图}
+		对于平面图，可以将其转化为对偶图。具体来说，对于原来的每个平面区域建立一个点，而分割两个平面的边变成连接两个点的边。
+		
+		有着一些良好的性质，比如平面图的最小割就是对偶图的最短路。
+		\subsection{二进制分组}
+		对于维护的信息，从大到小每二进制大小个维护一组。当有两组大小相同时，将两组合并。
+		
+		本质上是一个动态构建线段树的过程。
+	\newpage
 	\section{参考资料}
 	《Pollard-rho算法简要分析》，ljt12138，http://ljt12138.blog.uoj.ac/blog/3524
 	
@@ -1574,4 +1474,6 @@ $$max(|x1-x2|,|y1-y2|)$$
 	《竞赛图的一些性质》，zwl，https://www.cnblogs.com/acha/p/9042984.html
 	
 	《[竞赛图判定定理]兰道定理(Landau's Theorem)介绍及其一种证明》，a\_crazy\_czy，https://blog.csdn.net /a\_crazy\_czy/article/details/73611366
+	
+	(不全)
 \end{document}

@@ -76,244 +76,244 @@
 \contentsline {subsubsection}{\numberline {3.10.4}KD-Tree}{46}{subsubsection.3.10.4}
 \contentsline {subsection}{\numberline {3.11}Link-Cut-Tree}{46}{subsection.3.11}
 \contentsline {subsection}{\numberline {3.12}虚树}{47}{subsection.3.12}
-\contentsline {section}{\numberline {4}数学基础}{48}{section.4}
-\contentsline {subsection}{\numberline {4.1}积分与求导}{48}{subsection.4.1}
-\contentsline {subsubsection}{\numberline {4.1.1}常数和基本初等函数的导数公式}{48}{subsubsection.4.1.1}
-\contentsline {subsubsection}{\numberline {4.1.2}函数的和、差、积、商的求导法则}{48}{subsubsection.4.1.2}
-\contentsline {subsubsection}{\numberline {4.1.3}反函数求导法则}{48}{subsubsection.4.1.3}
-\contentsline {subsubsection}{\numberline {4.1.4}复合函数求导法则}{48}{subsubsection.4.1.4}
-\contentsline {subsubsection}{\numberline {4.1.5}定积分}{49}{subsubsection.4.1.5}
-\contentsline {subsubsection}{\numberline {4.1.6}定积分的性质}{49}{subsubsection.4.1.6}
-\contentsline {subsubsection}{\numberline {4.1.7}积分公式}{49}{subsubsection.4.1.7}
-\contentsline {paragraph}{牛顿·莱布尼茨公式}{49}{paragraph*.8}
-\contentsline {paragraph}{基本积分公式(基本导数公式的逆)}{49}{paragraph*.9}
-\contentsline {paragraph}{定积分换元公式}{50}{paragraph*.10}
-\contentsline {subsection}{\numberline {4.2}线性模方程}{50}{subsection.4.2}
-\contentsline {subsubsection}{\numberline {4.2.1}费马小定理}{50}{subsubsection.4.2.1}
-\contentsline {subsubsection}{\numberline {4.2.2}扩展欧几里得}{50}{subsubsection.4.2.2}
-\contentsline {subsubsection}{\numberline {4.2.3}类欧几里得}{50}{subsubsection.4.2.3}
-\contentsline {subsubsection}{\numberline {4.2.4}中国剩余定理}{51}{subsubsection.4.2.4}
-\contentsline {paragraph}{证明}{51}{paragraph*.11}
-\contentsline {paragraph}{构造}{51}{paragraph*.12}
-\contentsline {subsubsection}{\numberline {4.2.5}扩展中国剩余定理}{51}{subsubsection.4.2.5}
-\contentsline {subsubsection}{\numberline {4.2.6}欧拉定理}{51}{subsubsection.4.2.6}
-\contentsline {paragraph}{证明}{52}{paragraph*.13}
-\contentsline {subsubsection}{\numberline {4.2.7}扩展欧拉定理}{52}{subsubsection.4.2.7}
-\contentsline {subsubsection}{\numberline {4.2.8}裴蜀定理}{52}{subsubsection.4.2.8}
-\contentsline {subsection}{\numberline {4.3}离散数学}{52}{subsection.4.3}
-\contentsline {subsubsection}{\numberline {4.3.1}BSGS}{52}{subsubsection.4.3.1}
-\contentsline {subsubsection}{\numberline {4.3.2}扩展 BSGS}{53}{subsubsection.4.3.2}
-\contentsline {subsubsection}{\numberline {4.3.3}原根}{54}{subsubsection.4.3.3}
-\contentsline {paragraph}{求解方式}{54}{paragraph*.14}
-\contentsline {subsubsection}{\numberline {4.3.4}质数判定}{55}{subsubsection.4.3.4}
-\contentsline {subsubsection}{\numberline {4.3.5}质因数分解}{55}{subsubsection.4.3.5}
-\contentsline {subsection}{\numberline {4.4}积性函数与狄利克雷卷积}{57}{subsection.4.4}
-\contentsline {subsubsection}{\numberline {4.4.1}常见积性函数}{57}{subsubsection.4.4.1}
-\contentsline {subsubsection}{\numberline {4.4.2}线性筛法}{57}{subsubsection.4.4.2}
-\contentsline {subsubsection}{\numberline {4.4.3}欧拉函数}{58}{subsubsection.4.4.3}
-\contentsline {subsubsection}{\numberline {4.4.4}莫比乌斯函数}{58}{subsubsection.4.4.4}
-\contentsline {subsubsection}{\numberline {4.4.5}狄利克雷卷积}{58}{subsubsection.4.4.5}
-\contentsline {subsubsection}{\numberline {4.4.6}杜教筛}{58}{subsubsection.4.4.6}
-\contentsline {subsubsection}{\numberline {4.4.7}$min25$筛}{59}{subsubsection.4.4.7}
-\contentsline {subsection}{\numberline {4.5}反演与容斥}{60}{subsection.4.5}
-\contentsline {subsubsection}{\numberline {4.5.1}反演}{60}{subsubsection.4.5.1}
-\contentsline {paragraph}{莫比乌斯反演}{60}{paragraph*.15}
-\contentsline {paragraph}{二项式反演}{60}{paragraph*.16}
-\contentsline {subsubsection}{\numberline {4.5.2}容斥原理}{61}{subsubsection.4.5.2}
-\contentsline {subsection}{\numberline {4.6}组合数学}{61}{subsection.4.6}
-\contentsline {subsubsection}{\numberline {4.6.1}组合变换}{61}{subsubsection.4.6.1}
-\contentsline {subsubsection}{\numberline {4.6.2}卢卡斯定理}{61}{subsubsection.4.6.2}
-\contentsline {subsubsection}{\numberline {4.6.3}扩展卢卡斯定理}{62}{subsubsection.4.6.3}
-\contentsline {subsubsection}{\numberline {4.6.4}卡特兰数}{62}{subsubsection.4.6.4}
-\contentsline {paragraph}{公式}{62}{paragraph*.17}
-\contentsline {paragraph}{常见模型}{62}{paragraph*.18}
-\contentsline {subsubsection}{\numberline {4.6.5}斯特林数}{63}{subsubsection.4.6.5}
-\contentsline {paragraph}{第一类斯特林数}{63}{paragraph*.19}
-\contentsline {paragraph}{第二类斯特林数}{63}{paragraph*.20}
-\contentsline {subsection}{\numberline {4.7}生成函数}{63}{subsection.4.7}
-\contentsline {subsection}{\numberline {4.8}矩阵与行列式}{63}{subsection.4.8}
-\contentsline {subsubsection}{\numberline {4.8.1}矩阵快速幂}{63}{subsubsection.4.8.1}
-\contentsline {subsubsection}{\numberline {4.8.2}线性基}{63}{subsubsection.4.8.2}
-\contentsline {subsubsection}{\numberline {4.8.3}高斯消元}{63}{subsubsection.4.8.3}
-\contentsline {subsubsection}{\numberline {4.8.4}矩阵求逆}{64}{subsubsection.4.8.4}
-\contentsline {subsubsection}{\numberline {4.8.5}行列式}{64}{subsubsection.4.8.5}
-\contentsline {paragraph}{行列式的求法}{64}{paragraph*.21}
-\contentsline {paragraph}{行列式的性质}{64}{paragraph*.22}
-\contentsline {subparagraph}{性质一}{64}{subparagraph*.23}
-\contentsline {subparagraph}{性质二}{64}{subparagraph*.24}
-\contentsline {subparagraph}{性质三}{65}{subparagraph*.25}
-\contentsline {subparagraph}{性质四}{65}{subparagraph*.26}
-\contentsline {subparagraph}{性质五}{65}{subparagraph*.27}
-\contentsline {subparagraph}{性质六}{65}{subparagraph*.28}
-\contentsline {subparagraph}{性质七}{65}{subparagraph*.29}
-\contentsline {paragraph}{优化行列式的计算}{65}{paragraph*.30}
-\contentsline {subsubsection}{\numberline {4.8.6}矩阵树定理}{65}{subsubsection.4.8.6}
-\contentsline {paragraph}{定义和定理}{65}{paragraph*.31}
-\contentsline {paragraph}{拓展}{65}{paragraph*.32}
-\contentsline {subparagraph}{计算边权之积的和}{65}{subparagraph*.33}
-\contentsline {subparagraph}{有向图生成树计数}{65}{subparagraph*.34}
-\contentsline {subsection}{\numberline {4.9}快速傅里叶变换与多项式}{66}{subsection.4.9}
-\contentsline {subsubsection}{\numberline {4.9.1}快速傅里叶变换 $FFT$}{66}{subsubsection.4.9.1}
-\contentsline {subsubsection}{\numberline {4.9.2}快速数论变换 $NTT$}{67}{subsubsection.4.9.2}
-\contentsline {subsubsection}{\numberline {4.9.3}任意模数 $NTT$}{67}{subsubsection.4.9.3}
-\contentsline {subsubsection}{\numberline {4.9.4}多项式}{67}{subsubsection.4.9.4}
-\contentsline {paragraph}{多项式加减法}{67}{paragraph*.35}
-\contentsline {paragraph}{多项式乘法}{67}{paragraph*.36}
-\contentsline {paragraph}{多项式求导}{67}{paragraph*.37}
-\contentsline {paragraph}{多项式积分}{68}{paragraph*.38}
-\contentsline {paragraph}{多项式求逆}{68}{paragraph*.39}
-\contentsline {paragraph}{多项式开方}{69}{paragraph*.40}
-\contentsline {paragraph}{多项式求$\qopname \relax o{ln}$}{70}{paragraph*.41}
-\contentsline {paragraph}{多项式求$exp$}{70}{paragraph*.42}
-\contentsline {paragraph}{多项式求幂}{71}{paragraph*.43}
-\contentsline {paragraph}{多项式除法}{71}{paragraph*.44}
-\contentsline {paragraph}{多项式多点求值}{72}{paragraph*.45}
-\contentsline {subsubsection}{\numberline {4.9.5}快速沃尔什变换 $FWT$}{76}{subsubsection.4.9.5}
-\contentsline {section}{\numberline {5}图论}{78}{section.5}
-\contentsline {subsection}{\numberline {5.1}生成树}{78}{subsection.5.1}
-\contentsline {subsubsection}{\numberline {5.1.1}Prim 算法}{78}{subsubsection.5.1.1}
-\contentsline {subsubsection}{\numberline {5.1.2}Kruskal 算法}{78}{subsubsection.5.1.2}
-\contentsline {subsubsection}{\numberline {5.1.3}Boruvka 算法}{78}{subsubsection.5.1.3}
-\contentsline {subsubsection}{\numberline {5.1.4}Kruskal 重构树}{78}{subsubsection.5.1.4}
-\contentsline {subsubsection}{\numberline {5.1.5}朱刘算法}{78}{subsubsection.5.1.5}
-\contentsline {subsection}{\numberline {5.2}斯坦纳树}{79}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}连通性相关问题}{80}{subsection.5.3}
-\contentsline {subsubsection}{\numberline {5.3.1}有向图强联通分量}{80}{subsubsection.5.3.1}
-\contentsline {subsubsection}{\numberline {5.3.2}无向图双联通分量}{80}{subsubsection.5.3.2}
-\contentsline {subsubsection}{\numberline {5.3.3}仙人掌}{81}{subsubsection.5.3.3}
-\contentsline {subsubsection}{\numberline {5.3.4}圆方树}{81}{subsubsection.5.3.4}
-\contentsline {subsubsection}{\numberline {5.3.5}广义圆方树}{82}{subsubsection.5.3.5}
-\contentsline {subsubsection}{\numberline {5.3.6}$2-sat$ 问题}{82}{subsubsection.5.3.6}
-\contentsline {paragraph}{判定}{82}{paragraph*.46}
-\contentsline {paragraph}{构造方案}{82}{paragraph*.47}
-\contentsline {subsection}{\numberline {5.4}最短/最长路径}{82}{subsection.5.4}
-\contentsline {subsubsection}{\numberline {5.4.1}Dijkstra}{82}{subsubsection.5.4.1}
-\contentsline {subsubsection}{\numberline {5.4.2}Bellman-ford}{82}{subsubsection.5.4.2}
-\contentsline {subsubsection}{\numberline {5.4.3}Floyed}{82}{subsubsection.5.4.3}
-\contentsline {paragraph}{Floyed最小环}{82}{paragraph*.48}
-\contentsline {paragraph}{传递闭包}{82}{paragraph*.49}
-\contentsline {subsubsection}{\numberline {5.4.4}最短路径树/最短路径 $DAG$}{83}{subsubsection.5.4.4}
-\contentsline {subsubsection}{\numberline {5.4.5}差分约束}{83}{subsubsection.5.4.5}
-\contentsline {subsection}{\numberline {5.5}回路问题}{83}{subsection.5.5}
-\contentsline {subsubsection}{\numberline {5.5.1}欧拉回路}{83}{subsubsection.5.5.1}
-\contentsline {subsubsection}{\numberline {5.5.2}哈密尔顿回路}{83}{subsubsection.5.5.2}
-\contentsline {subsection}{\numberline {5.6}竞赛图}{83}{subsection.5.6}
-\contentsline {subsubsection}{\numberline {5.6.1}性质一}{83}{subsubsection.5.6.1}
-\contentsline {subsubsection}{\numberline {5.6.2}性质二}{83}{subsubsection.5.6.2}
-\contentsline {subsubsection}{\numberline {5.6.3}性质三}{84}{subsubsection.5.6.3}
-\contentsline {subsubsection}{\numberline {5.6.4}性质四}{84}{subsubsection.5.6.4}
-\contentsline {subsubsection}{\numberline {5.6.5}兰道定理}{84}{subsubsection.5.6.5}
-\contentsline {subsection}{\numberline {5.7}二分图与网络流}{85}{subsection.5.7}
-\contentsline {subsubsection}{\numberline {5.7.1}匹配、边覆盖、独立集与点覆盖}{85}{subsubsection.5.7.1}
-\contentsline {paragraph}{定义}{85}{paragraph*.50}
-\contentsline {paragraph}{最大匹配与最小边覆盖}{85}{paragraph*.51}
-\contentsline {paragraph}{最大独立集与最小点覆盖}{85}{paragraph*.52}
-\contentsline {subsubsection}{\numberline {5.7.2}$König$ 定理}{85}{subsubsection.5.7.2}
-\contentsline {paragraph}{内容}{85}{paragraph*.53}
-\contentsline {subsubsection}{\numberline {5.7.3}$Hall$定理}{86}{subsubsection.5.7.3}
-\contentsline {paragraph}{内容}{86}{paragraph*.54}
-\contentsline {paragraph}{必要性}{86}{paragraph*.55}
-\contentsline {paragraph}{充分性}{86}{paragraph*.56}
-\contentsline {subsubsection}{\numberline {5.7.4}二分图最大匹配}{86}{subsubsection.5.7.4}
-\contentsline {paragraph}{Hungary算法}{86}{paragraph*.57}
-\contentsline {paragraph}{Hopcroft-Karp 算法}{86}{paragraph*.58}
-\contentsline {subsubsection}{\numberline {5.7.5}二分图最大/最小权匹配}{86}{subsubsection.5.7.5}
-\contentsline {subsubsection}{\numberline {5.7.6}最大流/最小割}{88}{subsubsection.5.7.6}
-\contentsline {paragraph}{Edmond-Karp算法}{88}{paragraph*.59}
-\contentsline {paragraph}{Dinic 算法}{88}{paragraph*.60}
-\contentsline {paragraph}{ISAP}{88}{paragraph*.61}
-\contentsline {subsubsection}{\numberline {5.7.7}费用流}{89}{subsubsection.5.7.7}
-\contentsline {paragraph}{消圈定理}{89}{paragraph*.62}
-\contentsline {paragraph}{$zkw$费用流}{89}{paragraph*.63}
-\contentsline {subsubsection}{\numberline {5.7.8}无源无汇上下界可行流}{89}{subsubsection.5.7.8}
-\contentsline {subsubsection}{\numberline {5.7.9}有源有汇上下界可行流}{90}{subsubsection.5.7.9}
-\contentsline {subsubsection}{\numberline {5.7.10}有源有汇上下界最大流}{90}{subsubsection.5.7.10}
-\contentsline {subsubsection}{\numberline {5.7.11}有源有汇上下界最小流}{90}{subsubsection.5.7.11}
-\contentsline {section}{\numberline {6}字符串}{91}{section.6}
-\contentsline {subsection}{\numberline {6.1}字符串基础}{91}{subsection.6.1}
-\contentsline {subsubsection}{\numberline {6.1.1}字符串 Hash}{91}{subsubsection.6.1.1}
-\contentsline {subsubsection}{\numberline {6.1.2}最小循环表示法}{91}{subsubsection.6.1.2}
-\contentsline {paragraph}{构造方法}{91}{paragraph*.64}
-\contentsline {subsubsection}{\numberline {6.1.3}有限状态自动机}{91}{subsubsection.6.1.3}
-\contentsline {subsubsection}{\numberline {6.1.4}序列自动机}{92}{subsubsection.6.1.4}
-\contentsline {subsubsection}{\numberline {6.1.5}Trie树}{92}{subsubsection.6.1.5}
-\contentsline {subsection}{\numberline {6.2}前缀字符串算法和数据结构}{92}{subsection.6.2}
-\contentsline {subsubsection}{\numberline {6.2.1}KMP}{92}{subsubsection.6.2.1}
-\contentsline {subsubsection}{\numberline {6.2.2}Aho Corasick自动机}{93}{subsubsection.6.2.2}
-\contentsline {paragraph}{Trie 图}{93}{paragraph*.65}
-\contentsline {subsection}{\numberline {6.3}回文字符串算法和数据结构}{93}{subsection.6.3}
-\contentsline {subsubsection}{\numberline {6.3.1}Manacher 算法}{93}{subsubsection.6.3.1}
-\contentsline {subsubsection}{\numberline {6.3.2}回文树/回文自动机}{94}{subsubsection.6.3.2}
-\contentsline {paragraph}{一些性质}{94}{paragraph*.66}
-\contentsline {subsection}{\numberline {6.4}后缀字符串算法和数据结构}{95}{subsection.6.4}
-\contentsline {subsubsection}{\numberline {6.4.1}后缀数组}{95}{subsubsection.6.4.1}
-\contentsline {subsubsection}{\numberline {6.4.2}后缀自动机}{96}{subsubsection.6.4.2}
-\contentsline {paragraph}{定义}{96}{paragraph*.67}
-\contentsline {paragraph}{性质}{96}{paragraph*.68}
-\contentsline {paragraph}{构建}{97}{paragraph*.69}
-\contentsline {subsubsection}{\numberline {6.4.3}广义后缀自动机}{97}{subsubsection.6.4.3}
-\contentsline {section}{\numberline {7}计算几何}{98}{section.7}
-\contentsline {subsection}{\numberline {7.1}直线的表示方法}{98}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}求三角形面积}{98}{subsection.7.2}
-\contentsline {subsection}{\numberline {7.3}向量的旋转}{98}{subsection.7.3}
-\contentsline {subsection}{\numberline {7.4}求直线的交点}{98}{subsection.7.4}
-\contentsline {subsection}{\numberline {7.5}半平面交}{99}{subsection.7.5}
-\contentsline {section}{\numberline {8}博弈论}{100}{section.8}
-\contentsline {subsection}{\numberline {8.1}基本定义和性质}{100}{subsection.8.1}
-\contentsline {subsubsection}{\numberline {8.1.1}必胜点和必败点}{100}{subsubsection.8.1.1}
-\contentsline {subsubsection}{\numberline {8.1.2}无偏博弈}{100}{subsubsection.8.1.2}
-\contentsline {subsection}{\numberline {8.2}正确性的证明方法}{101}{subsection.8.2}
-\contentsline {subsection}{\numberline {8.3}对抗搜索}{101}{subsection.8.3}
-\contentsline {paragraph}{\texttt {Alpha-Beta}剪枝}{101}{paragraph*.70}
-\contentsline {paragraph}{记忆化}{101}{paragraph*.71}
-\contentsline {subsection}{\numberline {8.4}常见模型}{101}{subsection.8.4}
-\contentsline {subsubsection}{\numberline {8.4.1}巴什博弈\texttt {(Bash Game）}}{101}{subsubsection.8.4.1}
-\contentsline {paragraph}{基本问题}{101}{paragraph*.72}
-\contentsline {paragraph}{结论}{101}{paragraph*.73}
-\contentsline {paragraph}{证明}{101}{paragraph*.74}
-\contentsline {subsubsection}{\numberline {8.4.2}尼姆博弈\texttt {(Nim Game)}}{101}{subsubsection.8.4.2}
-\contentsline {paragraph}{基本问题}{101}{paragraph*.75}
-\contentsline {paragraph}{结论}{101}{paragraph*.76}
-\contentsline {paragraph}{证明}{101}{paragraph*.77}
-\contentsline {paragraph}{尼姆博弈的扩展形式}{102}{paragraph*.78}
-\contentsline {subsubsection}{\numberline {8.4.3}威佐夫博弈 \texttt {(Wythoff Game)}}{102}{subsubsection.8.4.3}
-\contentsline {paragraph}{基本问题}{102}{paragraph*.79}
-\contentsline {paragraph}{结论}{102}{paragraph*.80}
-\contentsline {subsection}{\numberline {8.5}\texttt {Sprague-Grundy}定理与\texttt {Sprague-Grundy}函数}{102}{subsection.8.5}
-\contentsline {subsubsection}{\numberline {8.5.1}定义}{102}{subsubsection.8.5.1}
-\contentsline {paragraph}{\texttt {SG}函数}{102}{paragraph*.81}
-\contentsline {paragraph}{\texttt {SG}定理}{102}{paragraph*.82}
-\contentsline {subsubsection}{\numberline {8.5.2}\texttt {Anti-SG} 游戏和 \texttt {SJ}定理}{102}{subsubsection.8.5.2}
-\contentsline {paragraph}{基本问题}{102}{paragraph*.83}
-\contentsline {paragraph}{\texttt {SJ}定理}{102}{paragraph*.84}
-\contentsline {subsubsection}{\numberline {8.5.3}\texttt {Multi-SG}游戏}{102}{subsubsection.8.5.3}
-\contentsline {paragraph}{基本问题}{102}{paragraph*.85}
-\contentsline {paragraph}{结论}{103}{paragraph*.86}
-\contentsline {subsubsection}{\numberline {8.5.4}翻硬币游戏}{103}{subsubsection.8.5.4}
-\contentsline {paragraph}{基本问题}{103}{paragraph*.87}
-\contentsline {paragraph}{结论}{103}{paragraph*.88}
-\contentsline {section}{\numberline {9}其它}{103}{section.9}
-\contentsline {subsection}{\numberline {9.1}STL}{103}{subsection.9.1}
-\contentsline {subsubsection}{\numberline {9.1.1}系统堆}{103}{subsubsection.9.1.1}
-\contentsline {subsection}{\numberline {9.2}分块}{104}{subsection.9.2}
-\contentsline {subsubsection}{\numberline {9.2.1}莫队算法}{104}{subsubsection.9.2.1}
-\contentsline {subsubsection}{\numberline {9.2.2}带修莫队}{104}{subsubsection.9.2.2}
-\contentsline {subsubsection}{\numberline {9.2.3}树上分块}{104}{subsubsection.9.2.3}
-\contentsline {subsubsection}{\numberline {9.2.4}树上莫队}{105}{subsubsection.9.2.4}
-\contentsline {subsection}{\numberline {9.3}\texttt {Meet in the middle}}{105}{subsection.9.3}
-\contentsline {subsection}{\numberline {9.4}状态压缩}{105}{subsection.9.4}
-\contentsline {subsection}{\numberline {9.5}斜率优化}{105}{subsection.9.5}
-\contentsline {subsection}{\numberline {9.6}决策单调}{105}{subsection.9.6}
-\contentsline {subsection}{\numberline {9.7}摊还分析}{106}{subsection.9.7}
-\contentsline {paragraph}{核算法}{106}{paragraph*.89}
-\contentsline {paragraph}{势能分析}{106}{paragraph*.90}
-\contentsline {subsection}{\numberline {9.8}树套树}{106}{subsection.9.8}
-\contentsline {subsection}{\numberline {9.9}\texttt {dsu on tree}}{106}{subsection.9.9}
-\contentsline {subsection}{\numberline {9.10}平面距离}{106}{subsection.9.10}
-\contentsline {subsubsection}{\numberline {9.10.1}欧几里得距离}{106}{subsubsection.9.10.1}
-\contentsline {subsubsection}{\numberline {9.10.2}曼哈顿距离}{106}{subsubsection.9.10.2}
-\contentsline {subsubsection}{\numberline {9.10.3}切比雪夫距离}{106}{subsubsection.9.10.3}
-\contentsline {subsubsection}{\numberline {9.10.4}切比雪夫距离与曼哈顿距离的转化}{106}{subsubsection.9.10.4}
-\contentsline {subsection}{\numberline {9.11}平面图与对偶图}{107}{subsection.9.11}
-\contentsline {subsection}{\numberline {9.12}二进制分组}{107}{subsection.9.12}
-\contentsline {section}{\numberline {10}参考资料}{108}{section.10}
+\contentsline {subsection}{\numberline {3.13}分块}{48}{subsection.3.13}
+\contentsline {subsubsection}{\numberline {3.13.1}莫队算法}{48}{subsubsection.3.13.1}
+\contentsline {subsubsection}{\numberline {3.13.2}带修莫队}{48}{subsubsection.3.13.2}
+\contentsline {subsubsection}{\numberline {3.13.3}树上分块}{48}{subsubsection.3.13.3}
+\contentsline {subsubsection}{\numberline {3.13.4}树上莫队}{49}{subsubsection.3.13.4}
+\contentsline {section}{\numberline {4}数学基础}{50}{section.4}
+\contentsline {subsection}{\numberline {4.1}积分与求导}{50}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}常数和基本初等函数的导数公式}{50}{subsubsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.2}函数的和、差、积、商的求导法则}{50}{subsubsection.4.1.2}
+\contentsline {subsubsection}{\numberline {4.1.3}反函数求导法则}{50}{subsubsection.4.1.3}
+\contentsline {subsubsection}{\numberline {4.1.4}复合函数求导法则}{50}{subsubsection.4.1.4}
+\contentsline {subsubsection}{\numberline {4.1.5}定积分}{51}{subsubsection.4.1.5}
+\contentsline {subsubsection}{\numberline {4.1.6}定积分的性质}{51}{subsubsection.4.1.6}
+\contentsline {subsubsection}{\numberline {4.1.7}积分公式}{51}{subsubsection.4.1.7}
+\contentsline {paragraph}{牛顿·莱布尼茨公式}{51}{paragraph*.8}
+\contentsline {paragraph}{基本积分公式(基本导数公式的逆)}{51}{paragraph*.9}
+\contentsline {paragraph}{定积分换元公式}{52}{paragraph*.10}
+\contentsline {subsection}{\numberline {4.2}线性模方程}{52}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {4.2.1}费马小定理}{52}{subsubsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.2}扩展欧几里得}{52}{subsubsection.4.2.2}
+\contentsline {subsubsection}{\numberline {4.2.3}类欧几里得}{52}{subsubsection.4.2.3}
+\contentsline {subsubsection}{\numberline {4.2.4}中国剩余定理}{53}{subsubsection.4.2.4}
+\contentsline {paragraph}{证明}{53}{paragraph*.11}
+\contentsline {paragraph}{构造}{53}{paragraph*.12}
+\contentsline {subsubsection}{\numberline {4.2.5}扩展中国剩余定理}{53}{subsubsection.4.2.5}
+\contentsline {subsubsection}{\numberline {4.2.6}欧拉定理}{53}{subsubsection.4.2.6}
+\contentsline {paragraph}{证明}{54}{paragraph*.13}
+\contentsline {subsubsection}{\numberline {4.2.7}扩展欧拉定理}{54}{subsubsection.4.2.7}
+\contentsline {subsubsection}{\numberline {4.2.8}裴蜀定理}{54}{subsubsection.4.2.8}
+\contentsline {subsection}{\numberline {4.3}离散数学}{54}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}BSGS}{54}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}扩展 BSGS}{55}{subsubsection.4.3.2}
+\contentsline {subsubsection}{\numberline {4.3.3}原根}{56}{subsubsection.4.3.3}
+\contentsline {paragraph}{求解方式}{56}{paragraph*.14}
+\contentsline {subsubsection}{\numberline {4.3.4}质数判定}{57}{subsubsection.4.3.4}
+\contentsline {subsubsection}{\numberline {4.3.5}质因数分解}{57}{subsubsection.4.3.5}
+\contentsline {subsection}{\numberline {4.4}积性函数与狄利克雷卷积}{59}{subsection.4.4}
+\contentsline {subsubsection}{\numberline {4.4.1}常见积性函数}{59}{subsubsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.2}线性筛法}{59}{subsubsection.4.4.2}
+\contentsline {subsubsection}{\numberline {4.4.3}欧拉函数}{60}{subsubsection.4.4.3}
+\contentsline {subsubsection}{\numberline {4.4.4}莫比乌斯函数}{60}{subsubsection.4.4.4}
+\contentsline {subsubsection}{\numberline {4.4.5}狄利克雷卷积}{60}{subsubsection.4.4.5}
+\contentsline {subsubsection}{\numberline {4.4.6}杜教筛}{60}{subsubsection.4.4.6}
+\contentsline {subsubsection}{\numberline {4.4.7}$min25$筛}{61}{subsubsection.4.4.7}
+\contentsline {subsection}{\numberline {4.5}反演与容斥}{62}{subsection.4.5}
+\contentsline {subsubsection}{\numberline {4.5.1}反演}{62}{subsubsection.4.5.1}
+\contentsline {paragraph}{莫比乌斯反演}{62}{paragraph*.15}
+\contentsline {paragraph}{二项式反演}{62}{paragraph*.16}
+\contentsline {subsubsection}{\numberline {4.5.2}容斥原理}{63}{subsubsection.4.5.2}
+\contentsline {subsection}{\numberline {4.6}组合数学}{63}{subsection.4.6}
+\contentsline {subsubsection}{\numberline {4.6.1}组合变换}{63}{subsubsection.4.6.1}
+\contentsline {subsubsection}{\numberline {4.6.2}卢卡斯定理}{63}{subsubsection.4.6.2}
+\contentsline {subsubsection}{\numberline {4.6.3}扩展卢卡斯定理}{64}{subsubsection.4.6.3}
+\contentsline {subsubsection}{\numberline {4.6.4}卡特兰数}{64}{subsubsection.4.6.4}
+\contentsline {paragraph}{公式}{64}{paragraph*.17}
+\contentsline {paragraph}{常见模型}{64}{paragraph*.18}
+\contentsline {subsubsection}{\numberline {4.6.5}斯特林数}{65}{subsubsection.4.6.5}
+\contentsline {paragraph}{第一类斯特林数}{65}{paragraph*.19}
+\contentsline {paragraph}{第二类斯特林数}{65}{paragraph*.20}
+\contentsline {subsection}{\numberline {4.7}生成函数}{65}{subsection.4.7}
+\contentsline {subsection}{\numberline {4.8}矩阵与行列式}{65}{subsection.4.8}
+\contentsline {subsubsection}{\numberline {4.8.1}矩阵快速幂}{65}{subsubsection.4.8.1}
+\contentsline {subsubsection}{\numberline {4.8.2}线性基}{65}{subsubsection.4.8.2}
+\contentsline {subsubsection}{\numberline {4.8.3}高斯消元}{65}{subsubsection.4.8.3}
+\contentsline {subsubsection}{\numberline {4.8.4}矩阵求逆}{66}{subsubsection.4.8.4}
+\contentsline {subsubsection}{\numberline {4.8.5}行列式}{66}{subsubsection.4.8.5}
+\contentsline {paragraph}{行列式的求法}{66}{paragraph*.21}
+\contentsline {paragraph}{行列式的性质}{66}{paragraph*.22}
+\contentsline {subparagraph}{性质一}{66}{subparagraph*.23}
+\contentsline {subparagraph}{性质二}{66}{subparagraph*.24}
+\contentsline {subparagraph}{性质三}{67}{subparagraph*.25}
+\contentsline {subparagraph}{性质四}{67}{subparagraph*.26}
+\contentsline {subparagraph}{性质五}{67}{subparagraph*.27}
+\contentsline {subparagraph}{性质六}{67}{subparagraph*.28}
+\contentsline {subparagraph}{性质七}{67}{subparagraph*.29}
+\contentsline {paragraph}{优化行列式的计算}{67}{paragraph*.30}
+\contentsline {subsubsection}{\numberline {4.8.6}矩阵树定理}{67}{subsubsection.4.8.6}
+\contentsline {paragraph}{定义和定理}{67}{paragraph*.31}
+\contentsline {paragraph}{拓展}{67}{paragraph*.32}
+\contentsline {subparagraph}{计算边权之积的和}{67}{subparagraph*.33}
+\contentsline {subparagraph}{有向图生成树计数}{67}{subparagraph*.34}
+\contentsline {subsection}{\numberline {4.9}快速傅里叶变换与多项式}{68}{subsection.4.9}
+\contentsline {subsubsection}{\numberline {4.9.1}快速傅里叶变换 $FFT$}{68}{subsubsection.4.9.1}
+\contentsline {subsubsection}{\numberline {4.9.2}快速数论变换 $NTT$}{69}{subsubsection.4.9.2}
+\contentsline {subsubsection}{\numberline {4.9.3}任意模数 $NTT$}{69}{subsubsection.4.9.3}
+\contentsline {subsubsection}{\numberline {4.9.4}多项式}{69}{subsubsection.4.9.4}
+\contentsline {paragraph}{多项式加减法}{69}{paragraph*.35}
+\contentsline {paragraph}{多项式乘法}{69}{paragraph*.36}
+\contentsline {paragraph}{多项式求导}{69}{paragraph*.37}
+\contentsline {paragraph}{多项式积分}{70}{paragraph*.38}
+\contentsline {paragraph}{多项式求逆}{70}{paragraph*.39}
+\contentsline {paragraph}{多项式开方}{71}{paragraph*.40}
+\contentsline {paragraph}{多项式求$\qopname \relax o{ln}$}{72}{paragraph*.41}
+\contentsline {paragraph}{多项式求$exp$}{72}{paragraph*.42}
+\contentsline {paragraph}{多项式求幂}{73}{paragraph*.43}
+\contentsline {paragraph}{多项式除法}{73}{paragraph*.44}
+\contentsline {paragraph}{多项式多点求值}{74}{paragraph*.45}
+\contentsline {subsubsection}{\numberline {4.9.5}快速沃尔什变换 $FWT$}{78}{subsubsection.4.9.5}
+\contentsline {section}{\numberline {5}图论}{80}{section.5}
+\contentsline {subsection}{\numberline {5.1}生成树}{80}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}Prim 算法}{80}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.2}Kruskal 算法}{80}{subsubsection.5.1.2}
+\contentsline {subsubsection}{\numberline {5.1.3}Boruvka 算法}{80}{subsubsection.5.1.3}
+\contentsline {subsubsection}{\numberline {5.1.4}Kruskal 重构树}{80}{subsubsection.5.1.4}
+\contentsline {subsubsection}{\numberline {5.1.5}朱刘算法}{80}{subsubsection.5.1.5}
+\contentsline {subsection}{\numberline {5.2}斯坦纳树}{81}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}连通性相关问题}{82}{subsection.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}有向图强联通分量}{82}{subsubsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.2}无向图双联通分量}{82}{subsubsection.5.3.2}
+\contentsline {subsubsection}{\numberline {5.3.3}仙人掌}{83}{subsubsection.5.3.3}
+\contentsline {subsubsection}{\numberline {5.3.4}圆方树}{83}{subsubsection.5.3.4}
+\contentsline {subsubsection}{\numberline {5.3.5}广义圆方树}{84}{subsubsection.5.3.5}
+\contentsline {subsubsection}{\numberline {5.3.6}$2-sat$ 问题}{84}{subsubsection.5.3.6}
+\contentsline {paragraph}{判定}{84}{paragraph*.46}
+\contentsline {paragraph}{构造方案}{84}{paragraph*.47}
+\contentsline {subsection}{\numberline {5.4}最短/最长路径}{84}{subsection.5.4}
+\contentsline {subsubsection}{\numberline {5.4.1}Dijkstra}{84}{subsubsection.5.4.1}
+\contentsline {subsubsection}{\numberline {5.4.2}Bellman-ford}{84}{subsubsection.5.4.2}
+\contentsline {subsubsection}{\numberline {5.4.3}Floyed}{84}{subsubsection.5.4.3}
+\contentsline {paragraph}{Floyed最小环}{84}{paragraph*.48}
+\contentsline {paragraph}{传递闭包}{84}{paragraph*.49}
+\contentsline {subsubsection}{\numberline {5.4.4}最短路径树/最短路径 $DAG$}{85}{subsubsection.5.4.4}
+\contentsline {subsubsection}{\numberline {5.4.5}差分约束}{85}{subsubsection.5.4.5}
+\contentsline {subsection}{\numberline {5.5}回路问题}{85}{subsection.5.5}
+\contentsline {subsubsection}{\numberline {5.5.1}欧拉回路}{85}{subsubsection.5.5.1}
+\contentsline {subsubsection}{\numberline {5.5.2}哈密尔顿回路}{85}{subsubsection.5.5.2}
+\contentsline {subsection}{\numberline {5.6}竞赛图}{85}{subsection.5.6}
+\contentsline {subsubsection}{\numberline {5.6.1}性质一}{85}{subsubsection.5.6.1}
+\contentsline {subsubsection}{\numberline {5.6.2}性质二}{85}{subsubsection.5.6.2}
+\contentsline {subsubsection}{\numberline {5.6.3}性质三}{86}{subsubsection.5.6.3}
+\contentsline {subsubsection}{\numberline {5.6.4}性质四}{86}{subsubsection.5.6.4}
+\contentsline {subsubsection}{\numberline {5.6.5}兰道定理}{86}{subsubsection.5.6.5}
+\contentsline {subsection}{\numberline {5.7}二分图与网络流}{87}{subsection.5.7}
+\contentsline {subsubsection}{\numberline {5.7.1}匹配、边覆盖、独立集与点覆盖}{87}{subsubsection.5.7.1}
+\contentsline {paragraph}{定义}{87}{paragraph*.50}
+\contentsline {paragraph}{最大匹配与最小边覆盖}{87}{paragraph*.51}
+\contentsline {paragraph}{最大独立集与最小点覆盖}{87}{paragraph*.52}
+\contentsline {subsubsection}{\numberline {5.7.2}$König$ 定理}{87}{subsubsection.5.7.2}
+\contentsline {paragraph}{内容}{87}{paragraph*.53}
+\contentsline {subsubsection}{\numberline {5.7.3}$Hall$定理}{88}{subsubsection.5.7.3}
+\contentsline {paragraph}{内容}{88}{paragraph*.54}
+\contentsline {paragraph}{必要性}{88}{paragraph*.55}
+\contentsline {paragraph}{充分性}{88}{paragraph*.56}
+\contentsline {subsubsection}{\numberline {5.7.4}二分图最大匹配}{88}{subsubsection.5.7.4}
+\contentsline {paragraph}{Hungary算法}{88}{paragraph*.57}
+\contentsline {paragraph}{Hopcroft-Karp 算法}{88}{paragraph*.58}
+\contentsline {subsubsection}{\numberline {5.7.5}二分图最大/最小权匹配}{88}{subsubsection.5.7.5}
+\contentsline {subsubsection}{\numberline {5.7.6}最大流/最小割}{90}{subsubsection.5.7.6}
+\contentsline {paragraph}{Edmond-Karp算法}{90}{paragraph*.59}
+\contentsline {paragraph}{Dinic 算法}{90}{paragraph*.60}
+\contentsline {paragraph}{ISAP}{90}{paragraph*.61}
+\contentsline {subsubsection}{\numberline {5.7.7}费用流}{91}{subsubsection.5.7.7}
+\contentsline {paragraph}{消圈定理}{91}{paragraph*.62}
+\contentsline {paragraph}{$zkw$费用流}{91}{paragraph*.63}
+\contentsline {subsubsection}{\numberline {5.7.8}无源无汇上下界可行流}{91}{subsubsection.5.7.8}
+\contentsline {subsubsection}{\numberline {5.7.9}有源有汇上下界可行流}{92}{subsubsection.5.7.9}
+\contentsline {subsubsection}{\numberline {5.7.10}有源有汇上下界最大流}{92}{subsubsection.5.7.10}
+\contentsline {subsubsection}{\numberline {5.7.11}有源有汇上下界最小流}{92}{subsubsection.5.7.11}
+\contentsline {section}{\numberline {6}字符串}{93}{section.6}
+\contentsline {subsection}{\numberline {6.1}字符串基础}{93}{subsection.6.1}
+\contentsline {subsubsection}{\numberline {6.1.1}字符串 Hash}{93}{subsubsection.6.1.1}
+\contentsline {subsubsection}{\numberline {6.1.2}最小循环表示法}{93}{subsubsection.6.1.2}
+\contentsline {paragraph}{构造方法}{93}{paragraph*.64}
+\contentsline {subsubsection}{\numberline {6.1.3}有限状态自动机}{93}{subsubsection.6.1.3}
+\contentsline {subsubsection}{\numberline {6.1.4}序列自动机}{94}{subsubsection.6.1.4}
+\contentsline {subsubsection}{\numberline {6.1.5}Trie树}{94}{subsubsection.6.1.5}
+\contentsline {subsection}{\numberline {6.2}前缀字符串算法和数据结构}{94}{subsection.6.2}
+\contentsline {subsubsection}{\numberline {6.2.1}KMP}{94}{subsubsection.6.2.1}
+\contentsline {subsubsection}{\numberline {6.2.2}Aho Corasick自动机}{95}{subsubsection.6.2.2}
+\contentsline {paragraph}{Trie 图}{95}{paragraph*.65}
+\contentsline {subsection}{\numberline {6.3}回文字符串算法和数据结构}{95}{subsection.6.3}
+\contentsline {subsubsection}{\numberline {6.3.1}Manacher 算法}{95}{subsubsection.6.3.1}
+\contentsline {subsubsection}{\numberline {6.3.2}回文树/回文自动机}{96}{subsubsection.6.3.2}
+\contentsline {paragraph}{一些性质}{96}{paragraph*.66}
+\contentsline {subsection}{\numberline {6.4}后缀字符串算法和数据结构}{97}{subsection.6.4}
+\contentsline {subsubsection}{\numberline {6.4.1}后缀数组}{97}{subsubsection.6.4.1}
+\contentsline {subsubsection}{\numberline {6.4.2}后缀自动机}{98}{subsubsection.6.4.2}
+\contentsline {paragraph}{定义}{98}{paragraph*.67}
+\contentsline {paragraph}{性质}{98}{paragraph*.68}
+\contentsline {paragraph}{构建}{99}{paragraph*.69}
+\contentsline {subsubsection}{\numberline {6.4.3}广义后缀自动机}{99}{subsubsection.6.4.3}
+\contentsline {section}{\numberline {7}计算几何}{101}{section.7}
+\contentsline {subsection}{\numberline {7.1}直线的表示方法}{101}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}求三角形面积}{101}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}向量的旋转}{101}{subsection.7.3}
+\contentsline {subsection}{\numberline {7.4}求直线的交点}{101}{subsection.7.4}
+\contentsline {subsection}{\numberline {7.5}半平面交}{102}{subsection.7.5}
+\contentsline {section}{\numberline {8}博弈论}{104}{section.8}
+\contentsline {subsection}{\numberline {8.1}基本定义和性质}{104}{subsection.8.1}
+\contentsline {subsubsection}{\numberline {8.1.1}必胜点和必败点}{104}{subsubsection.8.1.1}
+\contentsline {subsubsection}{\numberline {8.1.2}无偏博弈}{104}{subsubsection.8.1.2}
+\contentsline {subsection}{\numberline {8.2}正确性的证明方法}{104}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}对抗搜索}{104}{subsection.8.3}
+\contentsline {paragraph}{Alpha-Beta剪枝}{104}{paragraph*.70}
+\contentsline {paragraph}{记忆化}{104}{paragraph*.71}
+\contentsline {subsection}{\numberline {8.4}常见模型}{105}{subsection.8.4}
+\contentsline {subsubsection}{\numberline {8.4.1}巴什博弈(Bash Game）}{105}{subsubsection.8.4.1}
+\contentsline {paragraph}{基本问题}{105}{paragraph*.72}
+\contentsline {paragraph}{结论}{105}{paragraph*.73}
+\contentsline {paragraph}{证明}{105}{paragraph*.74}
+\contentsline {subsubsection}{\numberline {8.4.2}尼姆博弈(Nim Game)}{105}{subsubsection.8.4.2}
+\contentsline {paragraph}{基本问题}{105}{paragraph*.75}
+\contentsline {paragraph}{结论}{105}{paragraph*.76}
+\contentsline {paragraph}{证明}{105}{paragraph*.77}
+\contentsline {paragraph}{尼姆博弈的扩展形式}{105}{paragraph*.78}
+\contentsline {subsubsection}{\numberline {8.4.3}威佐夫博弈 (Wythoff Game)}{105}{subsubsection.8.4.3}
+\contentsline {paragraph}{基本问题}{105}{paragraph*.79}
+\contentsline {paragraph}{结论}{105}{paragraph*.80}
+\contentsline {subsection}{\numberline {8.5}Sprague-Grundy定理与Sprague-Grundy函数}{106}{subsection.8.5}
+\contentsline {subsubsection}{\numberline {8.5.1}定义}{106}{subsubsection.8.5.1}
+\contentsline {paragraph}{$SG$ 函数}{106}{paragraph*.81}
+\contentsline {paragraph}{$SG$ 定理}{106}{paragraph*.82}
+\contentsline {subsubsection}{\numberline {8.5.2}Anti-SG 游戏和 SJ定理}{106}{subsubsection.8.5.2}
+\contentsline {paragraph}{基本问题}{106}{paragraph*.83}
+\contentsline {paragraph}{SJ 定理}{106}{paragraph*.84}
+\contentsline {subsubsection}{\numberline {8.5.3}Multi-SG 游戏}{106}{subsubsection.8.5.3}
+\contentsline {paragraph}{基本问题}{106}{paragraph*.85}
+\contentsline {paragraph}{结论}{106}{paragraph*.86}
+\contentsline {subsubsection}{\numberline {8.5.4}翻硬币游戏}{106}{subsubsection.8.5.4}
+\contentsline {paragraph}{基本问题}{106}{paragraph*.87}
+\contentsline {paragraph}{结论}{106}{paragraph*.88}
+\contentsline {section}{\numberline {9}其它}{107}{section.9}
+\contentsline {subsection}{\numberline {9.1}STL}{107}{subsection.9.1}
+\contentsline {subsubsection}{\numberline {9.1.1}系统堆}{107}{subsubsection.9.1.1}
+\contentsline {subsection}{\numberline {9.2}Meet in the middle}{107}{subsection.9.2}
+\contentsline {subsection}{\numberline {9.3}状态压缩}{107}{subsection.9.3}
+\contentsline {subsection}{\numberline {9.4}斜率优化}{107}{subsection.9.4}
+\contentsline {subsection}{\numberline {9.5}决策单调}{107}{subsection.9.5}
+\contentsline {subsection}{\numberline {9.6}摊还分析}{107}{subsection.9.6}
+\contentsline {paragraph}{核算法}{108}{paragraph*.89}
+\contentsline {paragraph}{势能分析}{108}{paragraph*.90}
+\contentsline {subsection}{\numberline {9.7}树套树}{108}{subsection.9.7}
+\contentsline {subsection}{\numberline {9.8}dsu on tree}{108}{subsection.9.8}
+\contentsline {subsection}{\numberline {9.9}平面距离}{108}{subsection.9.9}
+\contentsline {subsubsection}{\numberline {9.9.1}欧几里得距离}{108}{subsubsection.9.9.1}
+\contentsline {subsubsection}{\numberline {9.9.2}曼哈顿距离}{108}{subsubsection.9.9.2}
+\contentsline {subsubsection}{\numberline {9.9.3}切比雪夫距离}{108}{subsubsection.9.9.3}
+\contentsline {subsubsection}{\numberline {9.9.4}切比雪夫距离与曼哈顿距离的转化}{108}{subsubsection.9.9.4}
+\contentsline {subsection}{\numberline {9.10}平面图与对偶图}{109}{subsection.9.10}
+\contentsline {subsection}{\numberline {9.11}二进制分组}{109}{subsection.9.11}
+\contentsline {section}{\numberline {10}参考资料}{110}{section.10}

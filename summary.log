@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.12.9)  8 APR 2019 17:45
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.12.9)  8 APR 2019 20:23
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -2048,7 +2048,7 @@ LaTeX Font Info:    Font shape `TU/FandolSong-Regular(0)/m/sl' in size <10.5393
 7> not available
 (Font)              Font shape `TU/FandolSong-Regular(0)/m/it' tried instead on
  input line 40.
-[2]
+[2] [3] [4]
 *************************************************
 * fontspec warning: "script-not-exist"
 * 
@@ -2066,7 +2066,7 @@ LaTeX Font Info:    Font shape `TU/FandolSong-Regular(0)/m/sl' in size <10.5393
 . - 'normal' (m/n) with NFSS spec.: <->"[FandolFang-Regular.otf]/OT"
 . - 'small caps'  (m/sc) with NFSS spec.: 
 .................................................
-[3] [4] [5] [6])
+[5] [6])
 \tf@toc=\write7
 \openout7 = `summary.toc'.
 
@@ -2082,7 +2082,8 @@ out.pyg)...executed.
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
 ary.out.pyg code//Basic//biginteger.cpp)...executed.
 
- (./summary.out.pyg) [8]
+ (./summary.out.pyg)
+[8]
 Underfull \vbox (badness 10000) detected at line 53
  []
 
@@ -2355,103 +2356,90 @@ ary.out.pyg code//DataStruct//lct.cpp)...executed.
 
  (./summary.out.pyg) [46] [47]
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
- [48] [49] [50] [51]
-\openout3 = `summary.pyg'.
-
+ [48] [49]
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
+ary.out.pyg code//Math//exgcd.cpp)...executed.
 
  (./summary.out.pyg)
-\openout3 = `summary.pyg'.
-
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
+ary.out.pyg code//Math//simgcd.cpp)...executed.
 
 
-(./summary.out.pyg) [52]
-\openout3 = `summary.pyg'.
-
+(./summary.out.pyg) [50] [51]
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
+ary.out.pyg code//Math//bsgs.cpp)...executed.
 
- [53] (./summary.out.pyg)
-\openout3 = `summary.pyg'.
-
+ (./summary.out.pyg) [52]
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
+ary.out.pyg code//Math//exbsgs.cpp)...executed.
+
+ (./summary.out.pyg)
+[53]
+runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
+ary.out.pyg code//Math//priroot.cpp)...executed.
 
  (./summary.out.pyg) [54]
-\openout3 = `summary.pyg'.
-
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
+ary.out.pyg code//Math//millerrabin.cpp)...executed.
+
+ (./summary.out.pyg) [55]
+runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
+ary.out.pyg code//Math//pollardrho-floyed.cpp)...executed.
+
+ (./summary.out.pyg)
+runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
+ary.out.pyg code//Math//pollardrho-mult.cpp)...executed.
 
 
 (./summary.out.pyg)
-\openout3 = `summary.pyg'.
+Overfull \vbox (4.8175pt too high) detected at line 499
+ []
 
+[56]
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
+ary.out.pyg code//Math//sieve.cpp)...executed.
 
- [55] (./summary.out.pyg)
-\openout3 = `summary.pyg'.
-
-runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
-
- (./summary.out.pyg) [56] [57]
+ (./summary.out.pyg) [57] [58]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 726.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 726.
-
-\openout3 = `summary.pyg'.
+(hyperref)                removing `math shift' on input line 551.
 
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
+ary.out.pyg code//Math//min25.cpp)...executed.
 
-(./summary.out.pyg) [58]
+(./summary.out.pyg) [59]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 789.
+(amsmath)                 on input line 597.
 
-[59] [60]
+[60] [61]
 Missing character: There is no （ in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no （ in font [lmroman10-regular]:mapping=tex-text;!
- [61] [62]
-\openout3 = `summary.pyg'.
-
+ [62]
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
-
- (./summary.out.pyg)
-\openout3 = `summary.pyg'.
-
-runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
+ary.out.pyg code//Math//gauss.cpp)...executed.
 
  (./summary.out.pyg) [63] [64]
-\openout3 = `summary.pyg'.
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 772.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 772.
+
+[65]
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
-
-
-(./summary.out.pyg) [65]
-\openout3 = `summary.pyg'.
-
-runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
+ary.out.pyg code//Math//fft-unpre.cpp)...executed.
 
  (./summary.out.pyg)
-\openout3 = `summary.pyg'.
-
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
+ary.out.pyg code//Math//fft-pre.cpp)...executed.
 
  (./summary.out.pyg
 
@@ -2459,20 +2447,29 @@ LaTeX Font Warning: Font shape `TU/FandolFang-Regular(0)/m/it' undefined
 (Font)              using `TU/FandolFang-Regular(0)/m/n' instead on input line 
 2.
 
-) [66]
-\openout3 = `summary.pyg'.
+)
+Overfull \vbox (2.00343pt too high) detected at line 778
+ []
 
-runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
+[66]
 
- (./summary.out.pyg) [67]
-\openout3 = `summary.pyg'.
-
-runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 779.
 
 
-Overfull \hbox (1.99637pt too wide) in paragraph at lines 1094--1113
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 779.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 783.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 783.
+
+
+Overfull \hbox (1.99637pt too wide) in paragraph at lines 793--794
 \TU/FandolSong-Regular(0)/bx/n/10.53937 多 项 式 乘 法[] \TU/FandolSong-Regular(0)/m
 /n/10.53937 形 式 化 地，|  已 知 多 项 式 $\OML/cmm/m/it/10.53937 A\OT1/cmr/m/n/10.53937
  (\OML/cmm/m/it/10.53937 x\OT1/cmr/m/n/10.53937 )\OML/cmm/m/it/10.53937 ; B\OT1
@@ -2486,88 +2483,80 @@ ng-Regular(0)/m/n/10.53937 ，|  求 多 项 式 $\OML/cmm/m/it/10.53937 C\OT1/c
 olSong-Regular(0)/m/n/10.53937 。|  使 用 $\OML/cmm/m/it/10.53937 FFT; NTT$
  []
 
-(./summary.out.pyg)
-\openout3 = `summary.pyg'.
-
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
+ary.out.pyg code//Math//PolyDery.cpp)...executed.
 
- (./summary.out.pyg) [68]
-\openout3 = `summary.pyg'.
-
+(./summary.out.pyg) [67]
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
+ary.out.pyg code//Math//polyinte.cpp)...executed.
 
  (./summary.out.pyg)
-\openout3 = `summary.pyg'.
-
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
+ary.out.pyg code//Math//polyinv.cpp)...executed.
+
+ (./summary.out.pyg) [68]
+runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
+ary.out.pyg code//Math//polysqrt.cpp)...executed.
 
 
 (./summary.out.pyg) [69]
-\openout3 = `summary.pyg'.
-
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
+ary.out.pyg code//Math//polyln.cpp)...executed.
+
+ (./summary.out.pyg)
+runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
+ary.out.pyg code//Math//polyexp.cpp)...executed.
 
  (./summary.out.pyg) [70]
-\openout3 = `summary.pyg'.
-
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
+ary.out.pyg code//Math//polypow.cpp)...executed.
 
- (./summary.out.pyg)
-\openout3 = `summary.pyg'.
 
+(./summary.out.pyg)
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
+ary.out.pyg code//Math//polymod.cpp)...executed.
 
-
-(./summary.out.pyg) [71]
-\openout3 = `summary.pyg'.
-
+ [71] (./summary.out.pyg)
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
-
- (./summary.out.pyg)
-\openout3 = `summary.pyg'.
-
-runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
+ary.out.pyg code//Math//polyget.cpp)...executed.
 
  (./summary.out.pyg) [72]
-\openout3 = `summary.pyg'.
-
-runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
-
-
-(./summary.out.pyg) [73]
-Underfull \vbox (badness 10000) detected at line 1456
+Underfull \vbox (badness 10000) detected at line 869
  []
 
 
-Overfull \vbox (0.587pt too high) detected at line 1456
+Underfull \vbox (badness 10000) detected at line 869
+ []
+
+[73]
+Underfull \vbox (badness 10000) detected at line 869
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 869
  []
 
 [74]
-Underfull \vbox (badness 10000) detected at line 1456
+Underfull \vbox (badness 10000) detected at line 869
  []
 
 
-Overfull \vbox (0.52377pt too high) detected at line 1456
+Underfull \vbox (badness 10000) detected at line 869
  []
 
 [75]
-Underfull \vbox (badness 10000) detected at line 1456
- []
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 870.
 
 
-Overfull \vbox (0.72403pt too high) detected at line 1456
- []
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 870.
 
-[76]
+runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
+ary.out.pyg code//Math//fwt.cpp)...executed.
+
+(./summary.out.pyg) [76]
 \openout3 = `summary.pyg'.
 
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
@@ -2579,66 +2568,61 @@ ary.out.pyg summary.pyg)...executed.
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
 ary.out.pyg summary.pyg)...executed.
 
- (./summary.out.pyg) [78]
+ [78] (./summary.out.pyg)
 \openout3 = `summary.pyg'.
 
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
 ary.out.pyg summary.pyg)...executed.
 
- (./summary.out.pyg)
-[79]
+
+(./summary.out.pyg) [79]
 \openout3 = `summary.pyg'.
 
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
 ary.out.pyg summary.pyg)...executed.
 
- (./summary.out.pyg)
-\openout3 = `summary.pyg'.
-
-runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
-
- (./summary.out.pyg) [80] [81] [82]
+ (./summary.out.pyg) [80] [81]
 File: file//hamiltonian1.png Graphic file (type bmp)
 <file//hamiltonian1.png>
+ [82]
 File: file//hamiltonian2.png Graphic file (type bmp)
 <file//hamiltonian2.png>
- [83]
 File: file//hamiltonian3.png Graphic file (type bmp)
 <file//hamiltonian3.png>
- [84]
+ [83] [84]
 \openout3 = `summary.pyg'.
 
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
 ary.out.pyg summary.pyg)...executed.
 
 
-(./summary.out.pyg) [85]
-Overfull \hbox (22.02031pt too wide) in paragraph at lines 1783--1784
+(./summary.out.pyg)
+Overfull \hbox (22.02031pt too wide) in paragraph at lines 1171--1172
 []\TU/UbuntuMono(0)/m/n/10.53937 KM \TU/FandolSong-Regular(0)/m/n/10.53937 算 法 
 引 入 了 顶 标 和 相 等 子 图 的 概 念。|  对 于 左 右 两 边 的 顶 点 分 别 维 护 顶 标，|  而 只 有 满 足 \TU/Ubu
 ntuMono(0)/m/n/10.53937 dx[u]+dy[v]=dist
  []
 
+[85]
 \openout3 = `summary.pyg'.
 
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
 ary.out.pyg summary.pyg)...executed.
 
-(./summary.out.pyg) [86]
+ (./summary.out.pyg) [86]
+\openout3 = `summary.pyg'.
+
+runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
+ary.out.pyg summary.pyg)...executed.
+
+ (./summary.out.pyg)
 \openout3 = `summary.pyg'.
 
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
 ary.out.pyg summary.pyg)...executed.
 
  (./summary.out.pyg) [87]
-\openout3 = `summary.pyg'.
-
-runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
-
- (./summary.out.pyg) [88]
-[89] [90]
+[88] [89] [90]
 \openout3 = `summary.pyg'.
 
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
@@ -2661,7 +2645,6 @@ ary.out.pyg summary.pyg)...executed.
 
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
 ary.out.pyg summary.pyg)...executed.
-
 
 (./summary.out.pyg) [92]
 \openout3 = `summary.pyg'.
@@ -2689,7 +2672,7 @@ runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
 ary.out.pyg summary.pyg)...executed.
 
  (./summary.out.pyg) [95]
-Overfull \hbox (11.94016pt too wide) in paragraph at lines 2154--2155
+Overfull \hbox (11.94016pt too wide) in paragraph at lines 1542--1543
 []\TU/FandolSong-Regular(0)/m/n/10.53937 对 于 \TU/UbuntuMono(0)/m/n/10.53937 S \
 TU/FandolSong-Regular(0)/m/n/10.53937 的 两 个 子 串 \TU/UbuntuMono(0)/m/n/10.53937 
 s1,s2 \TU/FandolSong-Regular(0)/m/n/10.53937 ，|  假 设 有 $\OML/cmm/m/it/10.53937 
@@ -2703,7 +2686,7 @@ OML/cmm/m/it/10.53937 s\OT1/cmr/m/n/10.53937 2)$\TU/FandolSong-Regular(0)/m/n/1
  []
 
 
-Overfull \hbox (4.88223pt too wide) in paragraph at lines 2156--2157
+Overfull \hbox (4.88223pt too wide) in paragraph at lines 1544--1545
 []\TU/FandolSong-Regular(0)/m/n/10.53937 对 于 状 态 \TU/UbuntuMono(0)/m/n/10.53937
  st \TU/FandolSong-Regular(0)/m/n/10.53937 ，|  任 意 \TU/UbuntuMono(0)/m/n/10.539
 37 longest(st) \TU/FandolSong-Regular(0)/m/n/10.53937 的 后 缀 \TU/UbuntuMono(0)/m
@@ -2755,7 +2738,7 @@ ary.out.pyg summary.pyg)...executed.
 
 LaTeX Font Warning: Font shape `TU/FandolFang-Regular(0)/bx/n' undefined
 (Font)              using `TU/FandolFang-Regular(0)/m/n' instead on input line 
-2329.
+1717.
 
 [101] [102]
 \openout5 = `summary.pyg'.
@@ -2770,7 +2753,7 @@ runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
 ary.out.pyg summary.pyg)...executed.
 
  (./summary.out.pyg)
-Overfull \vbox (1.51276pt too high) detected at line 2423
+Overfull \vbox (1.51276pt too high) detected at line 1811
  []
 
 [103]
@@ -2792,9 +2775,9 @@ File: file//manhattan.png Graphic file (type bmp)
 File: file//qiebixuefu.png Graphic file (type bmp)
 <file//qiebixuefu.png>
  [107]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2565.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1953.
 
-Overfull \hbox (27.60736pt too wide) in paragraph at lines 2564--2565
+Overfull \hbox (27.60736pt too wide) in paragraph at lines 1952--1953
 []|\TU/FandolSong-Regular(0)/m/n/10.53937 《\TU/lmr/m/n/10.53937 [\TU/FandolSong
 -Regular(0)/m/n/10.53937 竞 赛 图 判 定 定 理\TU/lmr/m/n/10.53937 ] \TU/FandolSong-Reg
 ular(0)/m/n/10.53937 兰 道 定 理 \TU/lmr/m/n/10.53937 (Landau’s Theorem) \TU/Fandol
@@ -2804,13 +2787,13 @@ sdn.net
  []
 
 [108]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2565.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1953.
  (./summary.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 2565.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2565.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1953.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1953.
 
 Package rerunfilecheck Info: File `summary.out' has not changed.
-(rerunfilecheck)             Checksum: 803E67D1F2CC808C1581C5B6CCC5FABD.
+(rerunfilecheck)             Checksum: FD3BE8A1738E1B90E339DB345B5CC77C.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -2823,12 +2806,12 @@ runsystem(rm summary.pyg)...executed.
 
 runsystem(rm summary.out.pyg)...executed.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2565.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1953.
  ) 
 Here is how much of TeX's memory you used:
- 33305 strings out of 492970
- 664497 string characters out of 6133938
- 998860 words of memory out of 5000000
+ 33301 strings out of 492970
+ 664433 string characters out of 6133938
+ 998910 words of memory out of 5000000
  36793 multiletter control sequences out of 15000+600000
  538361 words of font info for 95 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191

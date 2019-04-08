@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.12.9)  8 APR 2019 20:52
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2018.12.9)  8 APR 2019 22:02
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -2050,7 +2050,7 @@ LaTeX Font Info:    Font shape `TU/FandolSong-Regular(0)/m/sl' in size <10.5393
  input line 40.
 [2] [3] [4]
 Missing character: There is no ö in font cmmi10!
- [5]
+ [5] [6]
 *************************************************
 * fontspec warning: "script-not-exist"
 * 
@@ -2068,7 +2068,7 @@ Missing character: There is no ö in font cmmi10!
 . - 'normal' (m/n) with NFSS spec.: <->"[FandolFang-Regular.otf]/OT"
 . - 'small caps'  (m/sc) with NFSS spec.: 
 .................................................
-[6])
+)
 \tf@toc=\write7
 \openout7 = `summary.toc'.
 
@@ -2646,83 +2646,53 @@ runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
 ary.out.pyg code//String//minre.cpp)...executed.
 
  (./summary.out.pyg) [91]
-\openout3 = `summary.pyg'.
-
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
+ary.out.pyg code//String//seqauto.cpp)...executed.
 
  (./summary.out.pyg)
-\openout3 = `summary.pyg'.
-
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
+ary.out.pyg code//String//kmp.cpp)...executed.
 
 
 [92] (./summary.out.pyg)
-\openout3 = `summary.pyg'.
-
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
+ary.out.pyg code//String//aho.cpp)...executed.
 
  (./summary.out.pyg)
-\openout3 = `summary.pyg'.
-
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
+ary.out.pyg code//String//manacher.cpp)...executed.
 
- (./summary.out.pyg) [93]
-\openout3 = `summary.pyg'.
-
+ [93] (./summary.out.pyg)
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
+ary.out.pyg code//String//pam.cpp)...executed.
 
 
 (./summary.out.pyg) [94]
-\openout3 = `summary.pyg'.
-
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
+ary.out.pyg code//String//sa.cpp)...executed.
 
  (./summary.out.pyg) [95]
-Overfull \hbox (11.94016pt too wide) in paragraph at lines 1312--1313
-[]\TU/FandolSong-Regular(0)/m/n/10.53937 对 于 \TU/UbuntuMono(0)/m/n/10.53937 S \
-TU/FandolSong-Regular(0)/m/n/10.53937 的 两 个 子 串 \TU/UbuntuMono(0)/m/n/10.53937 
-s1,s2 \TU/FandolSong-Regular(0)/m/n/10.53937 ，|  假 设 有 $\OML/cmm/m/it/10.53937 
-length\OT1/cmr/m/n/10.53937 (\OML/cmm/m/it/10.53937 s\OT1/cmr/m/n/10.53937 1) \
-OMS/cmsy/m/n/10.53937 ^^T \OML/cmm/m/it/10.53937 length\OT1/cmr/m/n/10.53937 (\
-OML/cmm/m/it/10.53937 s\OT1/cmr/m/n/10.53937 2)$\TU/FandolSong-Regular(0)/m/n/1
-0.53937 ，|  则 \TU/UbuntuMono(0)/m/n/10.53937 s1 \TU/FandolSong-Regular(0)/m/n/1
-0.53937 是 \TU/UbuntuMono(0)/m/n/10.53937 s2 \TU/FandolSong-Regular(0)/m/n/10.53
-937 的 后 缀 当 且 仅 当 $\OML/cmm/m/it/10.53937 endpos\OT1/cmr/m/n/10.53937 (\OML/cmm
-/m/it/10.53937 s\OT1/cmr/m/n/10.53937 2) \OMS/cmsy/m/n/10.53937 ^^R
- []
-
-
-Overfull \hbox (4.88223pt too wide) in paragraph at lines 1314--1315
-[]\TU/FandolSong-Regular(0)/m/n/10.53937 对 于 状 态 \TU/UbuntuMono(0)/m/n/10.53937
- st \TU/FandolSong-Regular(0)/m/n/10.53937 ，|  任 意 \TU/UbuntuMono(0)/m/n/10.539
-37 longest(st) \TU/FandolSong-Regular(0)/m/n/10.53937 的 后 缀 \TU/UbuntuMono(0)/m
-/n/10.53937 s \TU/FandolSong-Regular(0)/m/n/10.53937 ，|  若 $\OML/cmm/m/it/10.53
-937 length\OT1/cmr/m/n/10.53937 (\OML/cmm/m/it/10.53937 shotest\OT1/cmr/m/n/10.
-53937 (\OML/cmm/m/it/10.53937 st\OT1/cmr/m/n/10.53937 )) \OMS/cmsy/m/n/10.53937
- ^^T \OML/cmm/m/it/10.53937 length\OT1/cmr/m/n/10.53937 (\OML/cmm/m/it/10.53937
- s\OT1/cmr/m/n/10.53937 ) \OMS/cmsy/m/n/10.53937 ^^T \OML/cmm/m/it/10.53937 len
-gth\OT1/cmr/m/n/10.53937 (\OML/cmm/m/it/10.53937 longest\OT1/cmr/m/n/10.53937 (
-\OML/cmm/m/it/10.53937 st\OT1/cmr/m/n/10.53937 ))$\TU/FandolSong-Regular(0)/m/n
-/10.53937 ，|
+Overfull \hbox (5.97897pt too wide) in paragraph at lines 1205--1206
+[]\TU/FandolSong-Regular(0)/m/n/10.53937 对 于 $\OML/cmm/m/it/10.53937 S$ \TU/Fan
+dolSong-Regular(0)/m/n/10.53937 的 两 个 子 串 $\OML/cmm/m/it/10.53937 s\OT1/cmr/m/n
+/10.53937 1\OML/cmm/m/it/10.53937 ; s\OT1/cmr/m/n/10.53937 2$ \TU/FandolSong-Re
+gular(0)/m/n/10.53937 ，|  假 设 有 $\OML/cmm/m/it/10.53937 length\OT1/cmr/m/n/10.5
+3937 (\OML/cmm/m/it/10.53937 s\OT1/cmr/m/n/10.53937 1) \OMS/cmsy/m/n/10.53937 ^
+^T \OML/cmm/m/it/10.53937 length\OT1/cmr/m/n/10.53937 (\OML/cmm/m/it/10.53937 s
+\OT1/cmr/m/n/10.53937 2)$\TU/FandolSong-Regular(0)/m/n/10.53937 ，|  则 $\OML/cmm
+/m/it/10.53937 s\OT1/cmr/m/n/10.53937 1$ \TU/FandolSong-Regular(0)/m/n/10.53937
+ 是 $\OML/cmm/m/it/10.53937 s\OT1/cmr/m/n/10.53937 2$ \TU/FandolSong-Regular(0)/
+m/n/10.53937 的 后 缀 当 且 仅 当 $\OML/cmm/m/it/10.53937 endpos\OT1/cmr/m/n/10.53937 
+(\OML/cmm/m/it/10.53937 s\OT1/cmr/m/n/10.53937 2) \OMS/cmsy/m/n/10.53937 ^^R
  []
 
 [96]
-\openout3 = `summary.pyg'.
-
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
+ary.out.pyg code//String//sam.cpp)...executed.
 
  (./summary.out.pyg)
-\openout3 = `summary.pyg'.
-
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
-ary.out.pyg summary.pyg)...executed.
+ary.out.pyg code//String//lsam.cpp)...executed.
 
  (./summary.out.pyg) [97]
 \openout3 = `summary.pyg'.
@@ -2730,10 +2700,9 @@ ary.out.pyg summary.pyg)...executed.
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
 ary.out.pyg summary.pyg)...executed.
 
- (./summary.out.pyg)
+ (./summary.out.pyg) [98]
 File: file//point.png Graphic file (type bmp)
 <file//point.png>
- [98]
 \openout3 = `summary.pyg'.
 
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
@@ -2746,11 +2715,11 @@ ary.out.pyg summary.pyg)...executed.
 runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
 ary.out.pyg summary.pyg)...executed.
 
- (./summary.out.pyg) [99] [100]
+ [99] (./summary.out.pyg) [100]
 
 LaTeX Font Warning: Font shape `TU/FandolFang-Regular(0)/bx/n' undefined
 (Font)              using `TU/FandolFang-Regular(0)/m/n' instead on input line 
-1487.
+1341.
 
 [101] [102]
 \openout5 = `summary.pyg'.
@@ -2765,7 +2734,7 @@ runsystem(pygmentize -l c++ -f latex -P commandprefix=PYG -F tokenmerge -o summ
 ary.out.pyg summary.pyg)...executed.
 
  (./summary.out.pyg)
-Overfull \vbox (1.51276pt too high) detected at line 1581
+Overfull \vbox (1.51276pt too high) detected at line 1435
  []
 
 [103]
@@ -2787,9 +2756,9 @@ File: file//manhattan.png Graphic file (type bmp)
 File: file//qiebixuefu.png Graphic file (type bmp)
 <file//qiebixuefu.png>
  [107]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1723.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1577.
 
-Overfull \hbox (27.60736pt too wide) in paragraph at lines 1722--1723
+Overfull \hbox (27.60736pt too wide) in paragraph at lines 1576--1577
 []|\TU/FandolSong-Regular(0)/m/n/10.53937 《\TU/lmr/m/n/10.53937 [\TU/FandolSong
 -Regular(0)/m/n/10.53937 竞 赛 图 判 定 定 理\TU/lmr/m/n/10.53937 ] \TU/FandolSong-Reg
 ular(0)/m/n/10.53937 兰 道 定 理 \TU/lmr/m/n/10.53937 (Landau’s Theorem) \TU/Fandol
@@ -2799,13 +2768,13 @@ sdn.net
  []
 
 [108]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1723.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1577.
  (./summary.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1723.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1723.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1577.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1577.
 
 Package rerunfilecheck Info: File `summary.out' has not changed.
-(rerunfilecheck)             Checksum: FD3BE8A1738E1B90E339DB345B5CC77C.
+(rerunfilecheck)             Checksum: 06E48A305C28E9E19E8B489A2A9CE36F.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -2818,12 +2787,12 @@ runsystem(rm summary.pyg)...executed.
 
 runsystem(rm summary.out.pyg)...executed.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1723.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1577.
  ) 
 Here is how much of TeX's memory you used:
  33268 strings out of 492970
  661806 string characters out of 6133938
- 999910 words of memory out of 5000000
+ 999918 words of memory out of 5000000
  36760 multiletter control sequences out of 15000+600000
  538361 words of font info for 95 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191

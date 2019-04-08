@@ -1128,247 +1128,101 @@
 			
 			\paragraph{构造方法} 定义两个指针 $i,j$ ，开始的时候分别在 $1,2$ 两个位置。然后向后扫直到扫到一个不相同的字符，假设当前扫的长度为 $k$ ，如果$S_{i+k} < S_{j+k}$，那么当 $j$ 在 $[j,k]$ 区间内的时候始终是没有 $i$ 优的，那么不如直接把 $j$ 移到 $j+k$ 的后面。复杂度 $O(n)$
 			\cpp{code//String//minre.cpp}
-	\subsubsection{有限状态自动机}
-	定义有限状态自动机是一个五元组 $M=(Q, \Sigma, \delta, q0, F)$
+			\subsubsection{有限状态自动机}
+			定义有限状态自动机是一个五元组 $M=(Q, \Sigma, \delta, q0, F)$
+			
+			\begin{itemize}
+				\item Q,状态的非空有穷集合。$\forall q \in Q$，q称为M的一个状态。
+				\item $\Sigma$,字符集
+				\item $\delta$，转移函数
+				\item q0,起始状态，对于字符串而言，一般代表空字符串
+				\item F，终止状态集合
+			\end{itemize}
+			
+			\subsubsection{序列自动机}
+			能够识别一个序列的所有子序列，用字符串的语言来讲就是能够识别某一个字符串的所有可以子序列（可以不连续）。
+			
+			其实实现方式就是对每一个位置开一个大小为字符集的链表数组，表示在当前位置后面接上某个字符会转移到哪里。
+			\cpp{code//String//seqauto.cpp}
+			\subsubsection{Trie树}
+			把字符串按照前缀压缩存储的数据结构。
 	
-	\begin{itemize}
-		\item Q,状态的非空有穷集合。$\forall q \in Q$，q称为M的一个状态。
-		\item $\Sigma$,字符集
-		\item $\delta$，转移函数
-		\item q0,起始状态，对于字符串而言，一般代表空字符串
-		\item F，终止状态集合
-	\end{itemize}
+			也常用于二进制位的处理。
+		\subsection{前缀字符串算法和数据结构}
+			\subsubsection{KMP}
+			前缀匹配算法，预处理 next 数组优化转移。
+			\cpp{code//String//kmp.cpp}
+			实时维护 KMP 自动机可以支持可持久化。
+			\subsubsection{Aho Corasick自动机}
+			KMP 上 Trie 树，支持多串匹配。重要性质在于 $fail$ 树上的祖先关系就是前缀关系。
+			\cpp{code//String//aho.cpp}
+			\paragraph{Trie 图} 当字符集大小不变时，可以考虑把 AC 自动机补全成 Trie 图减小常数。
+		\subsection{回文字符串算法和数据结构}
+			\subsubsection{Manacher 算法}
+			预处理出以每一个位置为中心的回文半径。
+			
+			一个小技巧是在每两个字符之间补充一个无关字符，以避免奇数回文和偶数回文的讨论。
+			\cpp{code//String//manacher.cpp}
+			\subsubsection{回文树/回文自动机}
+			建立关于最长回文后缀的数据结构。
+			
+			原理是一个串本质不同的回文子串只有 $O(n)$ 个，并且在串的后面增加一个字符，最多只增加一个本质不同的回文子串。
+			
+			回文自动机的每一个节点对应原串的一个本质不同的回文子串，其 $fail$ 指针则是指向它的最长回文后缀。
+			
+			由于回文有奇数回文和偶数回文两种，所以有两个根。
+			
+			增量构造即是不断跳 $fail$ 树寻找合法的最长回文后缀。
+			\cpp{code//String//pam.cpp}
+			由于回文的对称性，回文自动机同时支持从串的两边增量构造。同时维护两个 $last$ 标记就可以了，但需要注意的是，当整个串为一回文串时，需要把两个标记合并。
+			\paragraph{一些性质}
+			\begin{itemize}
+				\item 回文自动机的节点个数 $-2$ 就是本质不同的回文子串个数。（因为要减去两个根节点）
+				\item 回文自动机上，节点在 $fail$ 树上的深度就是这个节点对应的字符串的回文后缀的数量。（注意深度不能算两个根）
+				\item 一个串的长度超过一半的回文后缀的长度形成一个等差数列。也就是说，一个串的所有回文后缀的长度能够形成不超过 $\log$ 个等差数列。
+			\end{itemize}
+		\subsection{后缀字符串算法和数据结构}
+			\subsubsection{后缀数组}
+			把字符串的所有后缀按照字典序排序的算法即后缀排序。
+			
+			一般采用倍增的方式实现。
+			
+			维护一个 $Height$ 表示排序后相邻两个子串的最长公共前缀长度，可以结合其它算法支持字符串的信息查询。
+			\cpp{code//String//sa.cpp}
+			\subsubsection{后缀自动机}
+			接收一个字符串所有后缀的自动机，也就是说能够接收所有子串。
+			\paragraph{定义}
+			\begin{itemize}
+				\item $endpos(s)$，是一个集合，对于子串 $s$，它的所有出现过的位置记为 $endpos(s)$ 。如果两个子串的 $endpos$ 集合相等，则把这两个子串归为一类，即在后缀自动机上表示为一个节点。  
+				\item  $substring(st)$ ，状态 $st$ 的所有包含的子串集合。
+				\item  $shortest(st)$ ，对于状态 $st$ ，其能代表的最短子串。  
+				\item  $longest(st)$ ，对于状态 $st$ ，其能代表的最长子串。  
+				\item  $parent$ ，对于状态 $st$ ， $shortest(st)$ 的任意一个非自己的后缀一定出现在了更多的位置，其中最长的那个，会出现在 $parent(st)$ 的 $endpos$ 中，并且一定是其 $longest$ 。
+				\item  $trans(s,c)$ ，表示从 $s$ 这个自动机节点表示的所有字符串后面增加一个字符 $c$ 到达的自动机节点。
+			\end{itemize}
+			\paragraph{性质}
+			\begin{itemize}
+				\item 对于 $S$ 的两个子串 $s1,s2$ ，假设有$length(s1) \le length(s2)$，则 $s1$是 $s2$ 的后缀当且仅当$endpos(s2) \subseteq endpos(s1)$。$s1$ 不是 $s2$ 的后缀当且仅当$endpos(s1) \cap endpos(s2)= \emptyset$。
+				\item 对于状态 $st$ ，任意$s \in substring(st)$，都有 $s$ 是 $longest(st)$ 的后缀。
+				\item 对于状态 $st$ ，任意 $longest(st)$ 的后缀 $s$ ，若$length(shotest(st)) \le length(s) \le length(longest(st))$，那么$s \in substring(st)$
+				\item  $substring(st)$ 包含的是状态 $longest(st)$ 的一系列长度连续的后缀。
+				\item  $longest(parent(st))$ 一定是 $shortest(st)$ 的最长的后缀，也就是去掉第一个字符的子串。
+				\item  $length(shortest(st))=length(longest(parent(st)))+1$
+				\item 若 $tranc(st,c)=NULL$，则 $trans(parent(st),c)=NULL$
+				\item  $endpos(parent(st))$ 包含了它的所有儿子的 $endpos$，所以 $endpos(parent)$ 可以看作是它的儿子 $endpos$ 的并集。
+			\end{itemize}
+			\paragraph{构建} 考虑增量构造。记当前已经得到的自动机中末尾字符串代表的节点为 $s$ ,新加的字符是 $c$ 。那么我们可以知道，每增加一个字符，首先肯定要增加一个状态表示 $s+c$ ，然后我们要跳 $s$ 的 $parent$ 树去修改一路上的 $trans$ ，也可能是增加。分三种情况讨论。
+			\begin{itemize}
+				\item 对于从 $s$ 到根的 $parent$ 树上的路径，如果都没有 $c$ 的转移，那么对这些状态加上 $c$ 的转移就好。最后把新状态的 $parent$ 指向根。
+				\item 如果原来 $c$ 的转移 $trans(p,c)$ 这个点的 $longest$ 恰好等于 $p$ 的 $longest+1$，这意味着 $trans(p,c)$ 这个状态只表示了一个 $endpos$ 的集合，也就意味着 $trans(p,c)$ 能够表示的所有串加上一个字符 $c$ 后出现的位置并没有变化。那么此时，我们再增加一个 $c$ 的转移，同样也不会有变化，可以认为只是又增加了一个可行的结束位置。那么直接把新状态的 $parent$ 指向 $trans(p,c)$
+				\item $trans(p,c)$ 这个点的 $longest$ 大于 $p$ 的 $longest+1$, 这意味着原来 $trans(p,c)$ 这个自动机节点就表示的是多个字符串的状态，那么此时在 $p$ 后面再增加一个字符 $c$ ，势必与原来的 $trans(p,c)$ 代表的字符串的 $endpos$ 会不一样。那么此时我们就要从原来的 $trans(p,c)$ 这个点拆分出一个点来表示新的 $endpos$ 集合，把原来 $trans(p,c)$ 表示的字符串中长度小于等于 $longest(s)+1$ 的串分裂出去，其它的保留。分裂出去是因为从现在开始，原来这些字符串的 $endpos$ 集合发生了改变。再构造新的 $parent$ 使之指向分裂出去的新点。由于要修改所有长度小于等于 $longest(s)+1$ 的点，那么还要跳 $p$ 的 $parent$ 树修改所有的 $trans(p,c)$ 。
+			\end{itemize}
+			\cpp{code//String//sam.cpp}
+			\subsubsection{广义后缀自动机}
+			相比后缀自动机是接收一个串的子串，广义后缀自动机是接收若干串的子串。
 	
-	\subsubsection{序列自动机}
-	能够识别一个序列的所有子序列，用字符串的语言来讲就是能够识别某一个字符串的所有可以子序列（可以不连续）。
-	
-	其实实现方式就是对每一个位置开一个大小为字符集的链表数组，表示在当前位置后面接上某个字符会转移到哪里。
-\begin{minted}[bgcolor=bg]{c++}
-class Auto
-{
-    public:
-    int last[maxAlpha],fa[maxN];
-    int nodecnt,trans[maxN][maxAlpha];
-    Auto(){
-        nodecnt=1;for (int i=0;i<maxAlpha;i++) last[i]=1;return;
-    }
-    void Insert(int c){
-        fa[++nodecnt]=last[c];
-        for (int i=0;i<maxAlpha;i++)
-            for (int j=last[i];(j!=0)&&(trans[j][c]==0);j=fa[j])
-                trans[j][c]=nodecnt;
-        last[c]=nodecnt;return;
-    }
-};
-\end{minted}
-	\subsubsection{\texttt{Trie}树}
-	把字符串按照前缀压缩存储的数据结构。
-	
-	也常用于二进制位的处理。
-	\subsection{前缀字符串算法和数据结构}
-	\subsubsection{\texttt{KMP}}
-	前缀匹配算法，预处理 \texttt{next} 数组优化转移。
-\begin{minted}[bgcolor=bg]{c++}
-Next[0]=Next[1]=0;
-for (int i=2,j=0;i<=len;i++){
-    while ((j!=0)&&(s[j+1]!=s[i])) j=Next[j];
-    if (s[j+1]==s[i]) j++;
-    Next[i]=j;
-}
-\end{minted}
-
-	\subsubsection{\texttt{AhoCorasick}自动机}
-	\texttt{KMP} 上 \texttt{Trie} 树，支持多串匹配。重要性质在于 \texttt{fail} 树上的祖先关系就是前缀关系。
-	
-\begin{minted}[bgcolor=bg]{c++}
-void GetFail(){
-    while (!Q.empty()) Q.pop();
-    for (int i=0;i<maxAlpha;i++)
-    if (son[i][1]){
-        fail[son[i][1]]=1;Q.push(son[i][1]);
-    }
-    else son[i][1]=1;
-    while (!Q.empty()){
-        int u=Q.front();Q.pop();
-        for (int i=0;i<maxAlpha;i++)
-        if (son[i][u]){
-            fail[son[i][u]]=son[i][fail[u]];
-            Q.push(son[i][u]);
-        }
-        else son[i][u]=son[i][fail[u]];
-    }
-    return;
-}
-\end{minted}
-	\paragraph{\texttt{Trie}图} 当字符集大小不变时，可以考虑把 \texttt{AC} 自动机补全成 \texttt{Trie} 图减小常数。
-	\subsection{回文字符串算法和数据结构}
-	\subsubsection{\texttt{Manacher} 算法}
-	预处理出以每一个位置为中心的回文半径。
-	
-	一个小技巧是在每两个字符之间补充一个无关字符，以避免奇数回文和偶数回文的讨论。
-\begin{minted}[bgcolor=bg]{c++}
-int pos=0,mxR=0;
-    for (int i=1;i<=len+len;i++)
-    {
-        if (i<mxR) P[i]=min(P[pos*2-i],mxR-i);
-        else P[i]=1;
-        while (Input[i-P[i]]==Input[i+P[i]]) P[i]++;
-        if (i+P[i]>mxR){
-            mxR=i+P[i];pos=i;
-        }
-    }
-\end{minted}
-	
-	\subsubsection{回文树/回文自动机}
-	建立关于最长回文后缀的数据结构。
-	
-	原理是一个串本质不同的回文子串只有 \texttt{O(n)} 个，并且在串的后面增加一个字符，最多只增加一个本质不同的回文子串。
-	
-	回文自动机的每一个节点对应原串的一个本质不同的回文子串，其 \texttt{fail} 指针则是指向它的最长回文后缀。
-	
-	由于回文有奇数回文和偶数回文两种，所以有两个根。
-	
-	增量构造即是不断跳 \texttt{fail} 树寻找合法的最长回文后缀。
-	
-\begin{minted}[bgcolor=bg]{c++}
-void Insert(int pos,int c){
-    int p=last;
-    while (str[pos-1-P[p].len]!=str[pos]) p=P[p].fail;
-    if (P[p].son[c]==0){
-        int np=++nodecnt,q=P[p].fail;
-        while (str[pos-1-P[q].len]!=str[pos]) q=P[q].fail;
-        P[np].fail=P[q].son[c];
-        P[p].son[c]=np;P[np].len=P[p].len+2;
-    }
-    last=P[p].son[c];
-    P[last].cnt++;
-    return;
-}
-\end{minted}
-
-	由于回文的对称性，回文自动机同时支持从串的两边增量构造。同时维护两个 \texttt{last} 标记就可以了，但需要注意的是，当整个串为一回文串时，需要把两个标记合并。
-	
-	\paragraph{一些性质}
-	\begin{itemize}
-		\item 回文自动机的节点个数 \texttt{-2} 就是本质不同的回文子串个数。（因为要减去两个根节点）
-		\item 回文自动机上，节点在 \texttt{fail} 树上的深度就是这个节点对应的字符串的回文后缀的数量。（注意深度不能算两个根）
-		\item 一个串的长度超过一半的回文后缀的长度形成一个等差数列。也就是说，一个串的所有回文后缀的长度能够形成不超过 \texttt{log} 个等差数列。
-	\end{itemize}
-	
-	\subsection{后缀字符串算法和数据结构}
-	\subsubsection{后缀数组}
-	把字符串的所有后缀按照字典序排序的算法即后缀排序。
-	
-	一般采用倍增的方式实现。
-	
-	维护一个 \texttt{Height} 表示排序后相邻两个子串的最长公共前缀长度，可以结合其它算法支持字符串的信息查询。
-\begin{minted}[bgcolor=bg]{c++}
-for (int i=1;i<=L;i++) CntA[str[i]]++;
-for (int i=1;i<maxN;i++) CntA[i]+=CntA[i-1];
-for (int i=L;i>=1;i--) SA[CntA[str[i]]--]=i;
-Rank[SA[1]]=1;
-for (int i=2;i<=L;i++){
-    Rank[SA[i]]=Rank[SA[i-1]];
-    if (str[SA[i]]!=str[SA[i-1]]) Rank[SA[i]]++; 
-}
-for (int i=1;Rank[SA[L]]!=L;i<<=1){
-    mem(CntA,0);mem(CntB,0);
-    for (int j=1;j<=L;j++){
-        CntA[A[j]=Rank[j]]++;
-        CntB[B[j]=((j+i<=L)?(Rank[j+i]):(0))]++;
-    }
-    for (int j=1;j<maxN;j++) CntA[j]+=CntA[j-1],CntB[j]+=CntB[j-1];
-    for (int j=L;j>=1;j--) SSA[CntB[B[j]]--]=j;
-    for (int j=L;j>=1;j--) SA[CntA[A[SSA[j]]]--]=SSA[j];
-    Rank[SA[1]]=1;
-    for (int j=2;j<=L;j++){
-        Rank[SA[j]]=Rank[SA[j-1]];
-        if ((A[SA[j]]!=A[SA[j-1]])||(B[SA[j]]!=B[SA[j-1]])) Rank[SA[j]]++;
-    }
-}
-for (int i=1,j=0;i<=L;i++){
-    while (str[i+j]==str[SA[Rank[i]-1]+j]) j++;
-    Height[Rank[i]]=j;
-    if (j) j--;
-}
-\end{minted}
-	\subsubsection{后缀自动机}
-	接收一个字符串所有后缀的自动机，也就是说能够接收所有子串。
-	
-	\paragraph{定义}
-	
-	\begin{itemize}
-		\item \texttt{endpos(s)}，是一个集合，对于子串 \texttt{s}，它的所有出现过的位置记为 \texttt{endpos(s)} 。如果两个子串的 \texttt{endpos}集合相等，则把这两个子串归为一类，即在后缀自动机上表示为一个节点。  
-		\item  \texttt{substring(st)} ，状态 \texttt{st} 的所有包含的子串集合。
-		\item  \texttt{shortest(st)} ，对于状态 \texttt{st} ，其能代表的最短子串。  
-		\item  \texttt{longest(st)} ，对于状态 \texttt{st} ，其能代表的最长子串。  
-		\item  \texttt{parent} ，对于状态 \texttt{st} ， \texttt{shortest(st)} 的任意一个非自己的后缀一定出现在了更多的位置，其中最长的那个，会出现在 \texttt{parent(st)} 的 \texttt{endpos} 中，并且一定是其 \texttt{longest} 。 
-		\item  \texttt{trans(s,c)} ，表示从  \texttt{s} 这个自动机节点表示的所有字符串后面增加一个字符  \texttt{c} 到达的自动机节点。
-	\end{itemize}
-	
-	\paragraph{性质}
-	
-	\begin{itemize}
-		\item 对于 \texttt{S} 的两个子串\texttt{s1,s2} ，假设有$length(s1) \le length(s2)$，则 \texttt{s1}是\texttt{s2} 的后缀当且仅当$endpos(s2) \subseteq endpos(s1)$。\texttt{s1} 不是\texttt{s2} 的后缀当且仅当$endpos(s1) \cap endpos(s2)= \emptyset$。
-		\item 对于状态 \texttt{st} ，任意$s \in substring(st)$，都有 \texttt{s}是 \texttt{longest(st)} 的后缀。
-		\item 对于状态 \texttt{st} ，任意 \texttt{longest(st)} 的后缀 \texttt{s} ，若$length(shotest(st)) \le length(s) \le length(longest(st))$，那么$s \in substring(st)$
-		\item  \texttt{substring(st)} 包含的是状态 \texttt{longest(st)} 的一系列长度连续的后缀。
-		\item  \texttt{longest(parent(st))}一定是 \texttt{shortest(st)}的最长的后缀，也就是去掉第一个字符的子串。
-		\item  \texttt{length(shortest(st))=length(longest(parent(st)))+1}
-		\item 若 \texttt{tranc(st,c)=NULL}，则 \texttt{trans(parent(st),c)=NULL}
-		\item  \texttt{endpos(parent(st))}包含了它的所有儿子的 \texttt{endpos}，所以 \texttt{endpos(parent)} 可以看作是它的儿子 \texttt{endpos} 的并集。
-	\end{itemize}
-	
-	\paragraph{构建} 考虑增量构造。记当前已经得到的自动机中末尾字符串代表的节点为 \texttt{s} ,新加的字符是 \texttt{c} 。那么我们可以知道，每增加一个字符，首先肯定要增加一个状态表示 \texttt{s+c} ，然后我们要跳 \texttt{s} 的 \texttt{parent} 树去修改一路上的 \texttt{trans} ，也可能是增加。分三种情况讨论。
-	
-	\begin{itemize}
-		\item 对于从 \texttt{s} 到根的 \texttt{parent} 树上的路径，如果都没有 \texttt{c} 的转移，那么对这些状态加上 \texttt{c} 的转移就好。最后把新状态的 \texttt{parent} 指向根。
-		\item 如果原来 \texttt{c} 的转移 \texttt{trans(p,c)} 这个点的 \texttt{longest} 恰好等于 \texttt{p} 的 \texttt{longest+1}，这意味着 \texttt{trans(p,c)} 这个状态只表示了一个 \texttt{endpos} 的集合，也就意味着 \texttt{trans(p,c)} 能够表示的所有串加上一个字符 \texttt{c} 后出现的位置并没有变化。那么此时，我们再增加一个 \texttt{c} 的转移，同样也不会有变化，可以认为只是又增加了一个可行的结束位置。那么直接把新状态的 \texttt{parent} 指向 \texttt{trans(p,c)}
-		\item \texttt{trans(p,c)}这个点的 \texttt{longest} 大于 \texttt{p} 的 \texttt{longest+1}, 这意味着原来 \texttt{trans(p,c)} 这个自动机节点就表示的是多个字符串的状态，那么此时在 \texttt{p} 后面再增加一个字符 \texttt{c} ，势必与原来的 \texttt{trans(p,c)} 代表的字符串的 \texttt{endpos} 会不一样。那么此时我们就要从原来的 \texttt{trans(p,c)} 这个点拆分出一个点来表示新的 \texttt{endpos} 集合，把原来 \texttt{trans(p,c)} 表示的字符串中长度小于等于 \texttt{longest(s)+1} 的串分裂出去，其它的保留。分裂出去是因为从现在开始，原来这些字符串的 \texttt{endpos} 集合发生了改变。再构造新的 \texttt{parent} 使之指向分裂出去的新点。由于要修改所有长度小于等于 \texttt{longest(s)+1} 的点，那么还要跳 \texttt{p} 的 \texttt{parent} 树修改所有的 \texttt{trans(p,c)} 。
-	\end{itemize}
-\begin{minted}[bgcolor=bg]{c++}
-void Insert(int x){
-    int np=++nodecnt,p=last;last=np;
-    S[np].len=S[p].len+1;
-    while ((p)&&(S[p].ch[x]==0)) S[p].ch[x]=np,p=S[p].fa;
-    if (p==0){
-        S[np].fa=1;return;
-    }
-    int q=S[p].ch[x];
-    if (S[q].len==S[p].len+1){
-        S[np].fa=q;return;
-    }
-    int nq=++nodecnt;S[nq]=S[q];S[nq].len=S[p].len+1;
-    S[q].fa=S[np].fa=nq;
-    while ((p)&&(S[p].ch[x]==q)) S[p].ch[x]=nq,p=S[p].fa;
-    return;
-}
-\end{minted}
-	\subsubsection{广义后缀自动机}
-	相比后缀自动机是接收一个串的子串，广义后缀自动机是接收若干串的子串。
-	
-	只是在插入一个串之后重新从根开始插入即可，注意如果某一个点已经建立了就不用再新建点了。
-\begin{minted}[bgcolor=bg]{c++}
-void Insert(int c){
-    if ((S[last].son[c]!=0)&&(S[last].len+1==S[S[last].son[c]].len)){
-        last=S[last].son[c];return;
-    }//与普通的后缀自动机相比，只增加了这里的判断
-    int np=++nodecnt,p=last;last=nodecnt;
-    S[np].len=S[p].len+1;
-    while ((p!=0)&&(S[p].son[c]==0)) S[p].son[c]=np,p=S[p].fa;
-    if (p==0) S[np].fa=root;
-    else{
-        int q=S[p].son[c];
-        if (S[p].len+1==S[q].len) S[np].fa=q;
-        else{
-            int nq=++nodecnt;S[nq]=S[q];S[nq].len=S[p].len+1;
-            S[np].fa=S[q].fa=nq;
-            while ((p!=0)&&(S[p].son[c]==q)) S[p].son[c]=nq,p=S[p].fa;
-        }
-    }
-    return;
-}
-\end{minted}
+			只是在插入一个串之后重新从根开始插入即可，注意如果某一个点已经建立了就不用再新建点了。
+			\cpp{code//String//lsam.cpp}
 \section{计算几何}
 	\subsection{直线的表示方法}
 	最简单的是用一般式来表示，即 \texttt{Ax+By+c=0} 。  

@@ -1379,20 +1379,20 @@
 	\newpage
 	\section{其它}
 		\subsection{STL}
-		\subsubsection{系统堆}
-		系统本身有一种已经实现好的堆 \mintinline{c++}{priority_queue} 。但是由于其底层是用 vector 实现的，当不开 O2 的时候常数较大。
-		
-		但其实 $STL$ 里已经提供了直接操作堆的方法。当堆的大小确定的时候，不妨采用这种实现方式。
-		
-		\mintinline{c++}{make\_heap}: 根据指定的迭代器区间以及一个可选的比较函数，来创建一个 $heap$。 复杂度 $O(n)$
-		
-		\mintinline{c++}{push\_heap}: 把指定区间的最后一个元素插入到 $heap$中。复杂度 $O(\log n)$
-		
-		\mintinline{c++}{pop\_heap}: 弹出 $heap$ 顶元素, 将其放置于区间末尾。复杂度 $O(\log n)$
-		
-		\begin{minted}[bgcolor=bg]{c++}
-		\cpp{code//Other//stl-heap.cpp}
-		\end{minted}
+			\subsubsection{系统堆}
+			系统本身有一种已经实现好的堆 \mintinline{c++}{priority_queue} 。但是由于其底层是用 vector 实现的，当不开 O2 的时候常数较大。
+			
+			但其实 $STL$ 里已经提供了直接操作堆的方法。当堆的大小确定的时候，不妨采用这种实现方式。
+			
+			\mintinline{c++}{make\_heap}: 根据指定的迭代器区间以及一个可选的比较函数，来创建一个 $heap$。 复杂度 $O(n)$
+			
+			\mintinline{c++}{push\_heap}: 把指定区间的最后一个元素插入到 $heap$中。复杂度 $O(\log n)$
+			
+			\mintinline{c++}{pop\_heap}: 弹出 $heap$ 顶元素, 将其放置于区间末尾。复杂度 $O(\log n)$
+			
+			\begin{minted}[bgcolor=bg]{c++}
+			\cpp{code//Other//stl-heap.cpp}
+			\end{minted}
 
 		\subsection{Meet in the middle}
 		对于一些集合的查询问题，可以把集合分成两个部分，分别求信息，然后枚举组合一下。

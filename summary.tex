@@ -224,7 +224,7 @@
 			\subsubsection{区间修改区间查询}
 			$$\sum_{i=1}^{n} A_i=\sum_{i=1}^n \sum_{j=1}^i B_j=\sum_{i=1}^n (n-i+1)B_i=(n+1)\sum_{i=1}^n B_i-\sum_{i=1}^n iB_i$$
 	
-			用两个树状数组分贝维护 $A _ i$ 和 $iA _ i$ 。
+			用两个树状数组分别维护 $A _ i$ 和 $iA _ i$ 。
 			\subsubsection{ $O(n)$ 初始化}
 			如果把元素一个一个插入树状数组，复杂度是 $O(n\log n)$ 的。但是由于树状数组的优良性质，可以做到 $O(n)$ 直接预处理。由于每个节点控制的是以它结尾长度为 \texttt{lowbix(pos)} 的范围，那么把需要处理的数组作前缀和，然后 \texttt{BIT[pos]=Sum[pos]-Sum[(pos)\&(-pos)]} 即可。
 			\subsubsection{查询第 $K$ 小}
@@ -499,7 +499,7 @@
 			
 			\cpp{code//Math//priroot.cpp}
 			\subsubsection{质数判定}
-			稳定质数判定的算法是 $O(sqrt{n})$ 的。
+			稳定质数判定的算法是 $O(\sqrt{n})$ 的。
 
 			当需要判定的数较大时，采用随机算法 $Miller-Rabin$ 。
 
@@ -821,10 +821,10 @@
 			其中$F(B(x))$是一个关于$B(x)$的函数，一般而言是把$B(x)$看作未知数的一个方程。  
 			可以帮助化出很多倍增计算时的式子。
 			\paragraph{多项式加减法} 直接对应系数相加减
-			\paragraph{多项式乘法} 形式化地，已知多项式$A(x),B(X)$，求多项式$C(x)$满足$C(x)=A(x)B(x)$。使用$FFT,NTT$进行多项式乘法。时间复杂度$O(nlogn)$
+			\paragraph{多项式乘法} 形式化地，已知多项式$A(x),B(X)$，求多项式$C(x)$满足$C(x)=A(x)B(x)$。使用$FFT,NTT$进行多项式乘法。时间复杂度$O(n\log n)$
 			\paragraph{多项式求导}形式化地，已知多项式$A(x)$，求$A'(x)$。由导数公式$f(x)=x^k,f'(x)=kx^{k-1}$，可以得到其形式导数为
 			$$A'(x)=\sum _ {i \ge 1}ia _ {i}x^{i-1}$$
-			\cpp{code//Math//PolyDery.cpp}
+			\cpp{code//Math//polydery.cpp}
 			时间复杂度$O(n)$
 			\paragraph{多项式积分}形式化地，已知多项式$A(x)$，求$\int A(x)dx$。由基本积分公式$\int x^kdx=\frac{x^{k+1}}{k+1}$，可以得到
 			$$\int A(x)=\sum _ {i \ge 1}\frac{a _ {i-1}}{i}x^i$$
@@ -839,7 +839,7 @@
 			
 			同样，也可以用牛顿迭代推导出相同的结论。
 			\cpp{code//Math//polyinv.cpp}
-			时间复杂度$O(nlogn)$
+			时间复杂度$O(n\log n)$
 			\paragraph{多项式开方} 形式化地，已知多项式$A(x)$，求满足$B^2(x) \equiv A(x) \pmod{x^n}$的多项式$B(x)$，还是用倍增的方式求解
 			\begin{align}
 			B^2(x) \equiv A(x) \pmod{x^n} \nonumber\\ B^2(x)-A(x) \equiv 0 \pmod {x^n} \nonumber\\ (B^2(x)-A(x))^2 \equiv 0 \pmod{x^{2n}} \nonumber\\ (B^2(x)+A(x))^2 \equiv 4B^2(x)A(x) \pmod{x^{2n}} \nonumber\\ ( \frac{B^2(x)+A(x)}{2B(x)} ) ^2 \equiv A(x) \pmod{x^{2n}}\nonumber
@@ -848,14 +848,14 @@
 			
 			同样可以用牛顿迭代的式子。
 			\cpp{code//Math//polysqrt.cpp}
-			时间复杂度$O(nlogn)$
+			时间复杂度$O(n\log n)$
 			\paragraph{多项式求$\ln$} 形式化地，已知多项式$A(x)$，求多项式$B(x)$满足$B(x) \equiv \ln{A(x)} \pmod{x^n}$  
 			
 			左右两边同时求导得到
 			$$B'(x) \equiv \frac{A'(x)}{A(x)} \pmod{x^n}$$
 			多项式求导+多项式求逆+多项式乘法，最后再积分回来。
 			\cpp{code//Math//polyln.cpp}
-			时间复杂度$O(nlogn)$
+			时间复杂度$O(n\log n)$
 			\paragraph{多项式求$exp$}形式化地，已知多项式$A(x)$，求多项式$B(x)$满足$B(x) \equiv e^{A(x)} \pmod{x^n}$  
 			
 			两边同时取$\ln$得到
@@ -864,7 +864,7 @@
 			$$B _ {t+1}(x)=B _ t(x)-\frac{\ln{B _ t(x)}-A(x)}{\frac{1}{B _ t(x)}} \\\\ B _ {t+1}(x)=B _ t(x)[1-\ln{B _ t(x)}+A(x)]$$
 			多项式求$\ln$+多项式乘法
 			\cpp{code//Math//polyexp.cpp}
-			时间复杂度$O(nlogn)$
+			时间复杂度$O(n\log n)$
 			\paragraph{多项式求幂} 形式化地，已知多项式$A(x)$，求多项式$B(x)$满足$B(x) \equiv A^k(x) \pmod{x^n}$  
 			
 			当常数项能够取 $\ln$ 时，对两边同时取$\ln$得到
@@ -1059,7 +1059,7 @@
 			
 			又因为补集有 $|S|+|S'|=|V|$ ，所以有 最大独立集+最小点覆盖=顶点数
 			
-			\subsubsection{$König$ 定理}
+			\subsubsection{$K\mbox{ö}nig$ 定理}
 			\paragraph{内容} 在二分图中，最大匹配数=最小点覆盖
 			
 			首先给出构造方法。设最大匹配为 $M$ 对于二分图最大匹配的求解，是基于增广路定理的。那么当满足最大匹配的时候，从左边任意未匹配点出发，寻找增广路，一定不能满足按照非匹配边-匹配边-非匹配边这样走到一个非匹配点，不然匹配数还可以增加，与最大匹配矛盾。那么从左边所有未匹配点出发，寻找残缺的最短路，标记出所有经过的点。最后左侧未标记的点与右侧被标记的点组成的点集即为一个合法的最小点覆盖。
@@ -1118,13 +1118,7 @@
 			
 			如果存在一个可行流，那么一定满足每条边的流量都大于等于流量的下限。因此我们可以令每条边的流量等于流量下限，得到一个初始流，然后建出这个流的残量网络。(即：每条边的流量等于这条边的流量上限与流量下限之差)这个初始流不一定满足流量守恒，因此最终的可行流一定是在这个初始流的基础上增大了一些边的流量使得所有点满足流量守恒。  
 			
-			因此我们考虑在残量网络上求出一个另不满足流量守恒的附加流，使得这个附加流和我们的初始流合并之后满足流量守恒，即:  
-			
-			\begin{itemize}
-				\item 如果某个点在所有边流量等于下界的初始流中满足流量守恒，那么这个点在附加流中也满足流量守恒，
-				\item 如果某个点在初始流中的流入量比流出量多 $x$，那么这个点在附加流中的流出量比流入量多 $x$。  
-				\item 如果某个点在初始流中的流入量比流出量少 $x$，那么这个点在附加流中的流出量比流入量少 $x$。
-			\end{itemize}
+			因此我们考虑在残量网络上求出一个另不满足流量守恒的附加流，使得这个附加流和我们的初始流合并之后满足流量守恒。
 			
 			可以认为附加流中一条从  $u$ 到 $v$ 的边上的一个流量代表将原图中 $u$ 到 $v$ 的流量增大 $1$ 。新建超级源点和超级汇点，补充需要的流量。
 		
@@ -1183,7 +1177,7 @@
 			\subsubsection{KMP}
 			前缀匹配算法，预处理 next 数组优化转移。
 			\cpp{code//String//kmp.cpp}
-			实时维护 KMP 自动机可以支持可持久化。
+			\paragraph{KMP 自动机} 即预处理出所有转移的 KMP ，类比 AC 自动机的 Trie 图。支持可持久化。
 			\subsubsection{Aho Corasick自动机}
 			KMP 上 Trie 树，支持多串匹配。重要性质在于 $fail$ 树上的祖先关系就是前缀关系。
 			\cpp{code//String//aho.cpp}
@@ -1390,15 +1384,13 @@
 			
 			但其实 $STL$ 里已经提供了直接操作堆的方法。当堆的大小确定的时候，不妨采用这种实现方式。
 			
-			\mintinline{c++}{make\_heap}: 根据指定的迭代器区间以及一个可选的比较函数，来创建一个 $heap$。 复杂度 $O(n)$
+			\mintinline{c++}{make_heap}: 根据指定的迭代器区间以及一个可选的比较函数，来创建一个 $heap$。 复杂度 $O(n)$
 			
-			\mintinline{c++}{push\_heap}: 把指定区间的最后一个元素插入到 $heap$中。复杂度 $O(\log n)$
+			\mintinline{c++}{push_heap}: 把指定区间的最后一个元素插入到 $heap$中。复杂度 $O(\log n)$
 			
-			\mintinline{c++}{pop\_heap}: 弹出 $heap$ 顶元素, 将其放置于区间末尾。复杂度 $O(\log n)$
+			\mintinline{c++}{pop_heap}: 弹出 $heap$ 顶元素, 将其放置于区间末尾。复杂度 $O(\log n)$
 			
-			\begin{minted}[bgcolor=bg]{c++}
 			\cpp{code//Other//stl-heap.cpp}
-			\end{minted}
 
 		\subsection{Meet in the middle}
 		对于一些集合的查询问题，可以把集合分成两个部分，分别求信息，然后枚举组合一下。

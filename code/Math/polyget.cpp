@@ -44,8 +44,8 @@ int main(){
 int QPow(int x,int cnt){
     int ret=1;
     while (cnt){
-        if (cnt&1) ret=1ll*ret*x%Mod;
-        x=1ll*x*x%Mod;cnt>>=1;
+	if (cnt&1) ret=1ll*ret*x%Mod;
+	x=1ll*x*x%Mod;cnt>>=1;
     }
     return ret;
 }
@@ -55,16 +55,16 @@ void NTT(vector<int> &P,int N,int opt){
     for (int i=0;i<N;i++) Rader[i]=(Rader[i>>1]>>1)|((i&1)<<(L-1));
     for (int i=0;i<N;i++) if (i<Rader[i]) swap(P[i],P[Rader[i]]);
     for (int i=1;i<N;i<<=1){
-        int dw=QPow(G,(Mod-1)/(i<<1));if (opt==-1) dw=QPow(dw,Mod-2);
-        for (int j=0;j<N;j+=(i<<1))
-            for (int k=0,w=1;k<i;k++,w=1ll*w*dw%Mod){
-                int X=P[j+k],Y=1ll*P[j+k+i]*w%Mod;
-                P[j+k]=(X+Y)%Mod;P[j+k+i]=(X-Y+Mod)%Mod;
-            }
+	int dw=QPow(G,(Mod-1)/(i<<1));if (opt==-1) dw=QPow(dw,Mod-2);
+	for (int j=0;j<N;j+=(i<<1))
+	    for (int k=0,w=1;k<i;k++,w=1ll*w*dw%Mod){
+		int X=P[j+k],Y=1ll*P[j+k+i]*w%Mod;
+		P[j+k]=(X+Y)%Mod;P[j+k+i]=(X-Y+Mod)%Mod;
+	    }
     }
     if (opt==-1){
-        int inv=QPow(N,Mod-2);
-        for (int i=0;i<N;i++) P[i]=1ll*P[i]*inv%Mod;
+	int inv=QPow(N,Mod-2);
+	for (int i=0;i<N;i++) P[i]=1ll*P[i]*inv%Mod;
     }
     return;
 }
@@ -83,7 +83,7 @@ void Mul(vector<int> &A,vector<int> B){
 void PolyInv(vector<int> A,vector<int> &B,int len){
     A.resize(len);
     if (len==1){
-        B[0]=QPow(A[0],Mod-2);return;
+	B[0]=QPow(A[0],Mod-2);return;
     }
     PolyInv(A,B,len>>1);
     I1.resize(len<<1);I2.resize(len<<1);
@@ -96,40 +96,46 @@ void PolyInv(vector<int> A,vector<int> &B,int len){
     return;
 }
 
-void PolyMod(vector<int> A,vector<int> B,vector<int> &R){s
-	int n=A.size()-1,m=B.size()-1,p=n-m;
+void PolyMod(vector<int> A,vector<int> B,vector<int> &R){
+    int n=A.size()-1,m=B.size()-1,p=n-m;
     for (int i=0;i<n-i;i++) swap(A[i],A[n-i]);
     for (int i=0;i<m-i;i++) swap(B[i],B[m-i]);
+	
     int N=1;while (N<=m) N<<=1;
     B.resize(N);M1.resize(N);
     PolyInv(B,M1,N);B.resize(m+1);M1.resize(p+1);
+	
     Mul(M1,A);
     for (int i=0;i<p-i;i++) swap(M1[i],M1[p-i]);
     for (int i=0;i<n-i;i++) swap(A[i],A[n-i]);
     for (int i=0;i<m-i;i++) swap(B[i],B[m-i]);
+
     M1.resize(p+1);
     Mul(M1,B);
+
     R.resize(m);
     for (int i=0;i<m;i++) R[i]=(A[i]-M1[i]+Mod)%Mod;
     M1.resize(0);
     return;
 }
+
 void GetMul(int now,int l,int r){
     if (l==r){
-        I[now].resize(2);I[now][0]=(Mod-X[l])%Mod;I[now][1]=1;
-        return;
+	I[now].resize(2);I[now][0]=(Mod-X[l])%Mod;I[now][1]=1;
+	return;
     }
     int mid=(l+r)>>1;
     GetMul(lson,l,mid);GetMul(rson,mid+1,r);
     I[now]=I[lson];Mul(I[now],I[rson]);
     return;
 }
+
 void Divide(int now,int l,int r,vector<int> F){
     int sz=(r-l+1);
     if (F.size()-1>=sz) PolyMod(F,I[now],F);
     F.resize(sz+1);
     if (l==r){
-        Ans[l]=F[0];return;
+	Ans[l]=F[0];return;
     }
     int mid=(l+r)>>1;
     Divide(lson,l,mid,F);Divide(rson,mid+1,r,F);
